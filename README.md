@@ -10,6 +10,8 @@ This is currently work in progress.
 
 ## Contributing
 
+Do **not** modify the `gh-pages` branch directly!
+
 ### Make or request changes to an existing section
 
 * Edit the section that you want to work on in a fork or separate branch. 
