@@ -1,4 +1,7 @@
+**Read the docs at [clarin-eric.github.io/handbook-development](https://clarin-eric.github.io/handbook-development/)**
+
 # Sources for the CLARIN ERIC Software Development Guidelines
+[![Publication to GitHub Pages](https://github.com/clarin-eric/handbook-development/actions/workflows/publish.yml/badge.svg)](https://github.com/clarin-eric/handbook-development/actions/workflows/publish.yml)
 
 This repository provides the content and configurations for the CLARIN ERIC Software
 Development Guidelines.
