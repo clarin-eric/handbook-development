@@ -8,6 +8,10 @@ theme:
   name: material
   language: en
   features:
+    - navigation.tabs
+    - navigation.instant
+    - navigation.sections
+    - navigation.expand
     - navigation.footer
     - content.action.view
     - content.action.edit
@@ -26,3 +30,19 @@ extra_css:
       
 nav:
   - Home: index.md
+  - 'General guidelines':
+    - 'Logging': general-guidelines/logging.md
+    - 'Configuration': general-guidelines/configuration.md
+    - 'API development': general-guidelines/api.md
+    - 'Testing': general-guidelines/testing.md
+    - 'Code lifecycle': general-guidelines/code-lifecycle.md
+    - 'Security':  general-guidelines/security.md
+    - 'Maintenance':  general-guidelines/maintenance.md
+    - 'Code licencing':  general-guidelines/code-licencing.md
+    - 'Privacy & data protection':  general-guidelines/privacy-data-protection.md
+  - 'Stacks':
+    - 'Java': stack/java.md
+    - 'Bash': stack/bash.md
+    - 'Docker': stack/docker.md
+    - 'Python': stack/python.md
+    - 'Javascript': stack/javascript.md

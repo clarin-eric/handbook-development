@@ -1,8 +1,6 @@
-# Software Development Handbook
+## About the handbook
 
 This is work in progress!
-
-## About the handbook
 
 [TODO]
 
