@@ -43,12 +43,13 @@ Run the following to start a local server (requires docker):
 Then go to [http://localhost:8777](http://localhost:8777) to browse the documentation
 based on your local source.
 
-Alternatively install mkdocs via pip and run `mkdocs serve` directly.
+Alternatively install `mkdocs` and `mkdocs-material` via pip and run
+`mkdocs serve` directly.
 
-### GitHub actions -> pages
+### Deployment to GitHub pages
 
 Changes pushed to the `main` branch will automatically be deployed to 
 [GitHub pages](https://clarin-eric.github.io/handbook-development) using the
 [mkdocs-deploy-gh-pages action](https://github.com/mhausenblas/mkdocs-deploy-gh-pages).
 
-See [publication workflow](./.github/workflows/publish.yml) for details.
+See the [publication workflow](./.github/workflows/publish.yml) for details.
