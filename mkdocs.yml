@@ -21,6 +21,8 @@ extra:
       link: https://github.com/clarin-eric
     - icon: fontawesome/brands/gitlab
       link: https://gitlab.com/CLARIN-ERIC
+extra_css:
+  - stylesheets/clarin-colours.css
       
 nav:
   - Home: index.md
