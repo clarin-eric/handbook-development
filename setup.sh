@@ -14,4 +14,4 @@ echo "Building mkdocs image"
 docker build --tag 'mkdocs:latest' 'docker/mkdocs'
 
 echo "Initiating docs project"
-docker run -v "${SCRIPT_DIR}:/work" -w '/work' 'mkdocs:latest' new '/work'
+docker run --rm -v "${SCRIPT_DIR}:/work" -w '/work' 'mkdocs:latest' new '/work'

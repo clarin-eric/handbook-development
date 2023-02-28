@@ -13,7 +13,7 @@ echo "Building mkdocs image"
 docker build --tag 'mkdocs:latest' 'docker/mkdocs'
 
 echo "Starting server on http://localhost:${MKDOCS_SERVER_PORT}/"
-docker run \
+docker run --rm --name mkdocs_serve\
 	-v "${SCRIPT_DIR}:/work" \
 	-w '/work' \
 	-p "${MKDOCS_SERVER_PORT}:${MKDOCS_SERVER_PORT}" \
