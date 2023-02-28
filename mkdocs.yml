@@ -1,6 +1,9 @@
 site_name: CLARIN ERIC Software Development Handbook
+site_author: CLARIN ERIC developers
+site_url: https://clarin-eric.github.io/handbook-development
 repo_url: https://github.com/clarin-eric/handbook-development
 edit_uri: edit/main/docs/
+
 theme:
   name: material
   language: en
