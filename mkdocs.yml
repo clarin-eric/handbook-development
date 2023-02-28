@@ -1,1 +1,5 @@
-site_name: My Docs
+site_name: CLARIN ERIC Software Development Handbook
+theme:
+  name: material
+nav:
+    - Home: index.md
