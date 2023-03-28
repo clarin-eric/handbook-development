@@ -2,7 +2,7 @@
 
 Automation of tasks, either locally or on our servers, should be implemented in Bash [[BASH]](#bash) if possible.
 
-Any shell script should always be written in bash, using the following shebang:
+Any shell script ***SHOULD*** always be written in bash, using the following shebang:
 ```
 #!/usr/bin/env bash
 ```
@@ -10,8 +10,8 @@ Any shell script should always be written in bash, using the following shebang:
 Any task that has to be done more than once is a good candidate to automate with a shell script.
 
 Advantages:
-* supported on most *-nixes and OSX.
-* many developers and sysops are familiar with Bash:
+* Supported on most *-nixes and OSX.
+* Many developers and sysops are familiar with Bash:
   * and thus standardizing on bash lowers the learning curve.
   * and thus improving shareability.
   * and thus improving the distributability over multiple people (i.e. reducing the truck number).
@@ -19,13 +19,14 @@ Advantages:
 Disadvantages:
 * Can become long and complex and thus harder to maintain.
 
-We leave it up to the developer / sysop to judge if and when a script becomes too long and too difficult to maintain. If implementing in Bash is not possible or considered not suitable
+We leave it up to the developer / sysop to judge if and when a script becomes too long and too difficult to maintain. 
+If implementing in Bash is not possible or considered not suitable
 it is possible to implement the task in a different language, preferably resulting an excutable binary.
 
 # Code style
 
-Scripts should be linted via the ShellCheck [[SHELLCHECK]](#shellcheck) utility. Hints should be considered, however we should be pragmatic
-and if needed a specific hint can be ignored.
+Scripts ***SHOULD*** be linted via the ShellCheck [[SHELLCHECK]](#shellcheck) utility. Hints should be considered, 
+however we aim to be pragmatic and if needed a specific hint can be ignored.
 
 Google has a nice style guide [[GOOGLESTYLE]](#googlestyle) regarding shell scripts.
 
@@ -35,11 +36,13 @@ Some important highlights from this guide:
 * Line break before pipeline.
 * Quote variables as `"${foo}"` instead of `$foo` abd commands as `$(foo)` instead of `foo`.
 * Avoid `eval`.
-* `main` function for scripts longer than a few lines and/or other functions and call it in the very end(i.e. last line) of the script, passing all parameters: `main "$@"`.
+* `main` function for scripts longer than a few lines and/or other functions and call it in the very end(i.e. last line) 
+of the script, passing all parameters: `main "$@"`.
 * Calling scripts: use `bash script.sh` or `./script.sh` (not `sh script.sh`).
 
 Working directory assumptions:
-* Do not make unnecessary assumptions about the current working directory, particularly when callin other scripts. If the working directory is important, specifically test for it and exit with a warning if there is any issue.
+* Do not make unnecessary assumptions about the current working directory, particularly when callin other scripts. If 
+the working directory is important, specifically test for it and exit with a warning if there is any issue.
 * Never change the working directory, instead do work that required another directoty in a subshell only:
   * Use round brackets to do work in a subshell: `( work )`.
 
@@ -51,11 +54,11 @@ if [ -z ${var+x} ]; then echo "var is unset"; else echo "var is set to '$var'"; 
 as described in more detail in this [[STACKOVERFLOW]](#stackoverflow) stackoverflow discussion.
 
 # Documentation
-Typically we provide a comment directly after the shebang describing the purpose of the script on a high level.
-Furthermore functions should have a short comment explaining the purpose of the function, the support inputs and ouputs.
+Typically we ***SHOULD*** provide a comment directly after the shebang describing the purpose of the script on a high level.
+Furthermore functions ***SHOULD*** have a short comment explaining the purpose of the function, the support inputs and ouputs.
 
-A bash script should always support the `-h`, `--help` parameters. When provided the script should give a meaningfull summary
-of its usage and it's parameters.
+A bash script ***SHOULD*** always support the `-h`, `--help` parameters. When called with this argument the script gives 
+a meaningful summary of its usage and it's parameters.
 
 # Build tools & Continuous Integration
 
@@ -88,8 +91,8 @@ shell-check:
 ```
 
 # Testing tools
-While advocating unit testing in general, we typically don't run unit tests for bash. A solution that has been mentioned is bash unit [[BASHUNIT]](#bashunit), however
-we don't have experience with this tool.
+While advocating unit testing in general, we typically don't run unit tests for bash. A solution that has been mentioned 
+is bash unit [[BASHUNIT]](#bashunit), however we don't have experience with this tool.
 
 # Static code analysis
 Script analysis is achieved by linting via the ShellCheck utility.
