@@ -1,6 +1,6 @@
 # General
 
-Automation of tasks, either locally or on our servers, should be implemented in [Bash](https://www.gnu.org/software/bash/) if possible.
+Automation of tasks, either locally or on our servers, should be implemented in Bash[[1]](#bash) if possible.
 
 Any shell script should always be written in bash, using the following shebang:
 ```
@@ -93,3 +93,6 @@ we don't have experience with this tool.
 
 ## Static code analysis
 Script analysis is achieved by linting via the [shellcheck](https://www.shellcheck.net/) utility.
+
+# Further Reading
+1. <a name="bash">https://www.gnu.org/software/bash/</a>
