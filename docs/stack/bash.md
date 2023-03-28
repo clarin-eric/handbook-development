@@ -1,6 +1,6 @@
 # General
 
-Automation of tasks, either locally or on our servers, should be implemented in Bash [[1]](#bash) if possible.
+Automation of tasks, either locally or on our servers, should be implemented in Bash [[BASH]](#bash) if possible.
 
 Any shell script should always be written in bash, using the following shebang:
 ```
@@ -24,7 +24,7 @@ it is possible to implement the task in a different language, preferably resulti
 
 ## Code style
 
-Scripts should be linted via the shellcheck [[2]](#shellcheck) utility. Hints should be considered, however we should be pragmatic
+Scripts should be linted via the shellcheck [[SHELLCHECK]](#shellcheck) utility. Hints should be considered, however we should be pragmatic
 and if needed a specific hint can be ignored.
 
 Google has a nice style guide regarding shell scripts, it is available [here](https://google.github.io/styleguide/shellguide.html).
@@ -95,5 +95,5 @@ we don't have experience with this tool.
 Script analysis is achieved by linting via the [shellcheck](https://www.shellcheck.net/) utility.
 
 # Further Reading
-1. <a name="bash">Bash: https://www.gnu.org/software/bash/</a>
-2. <a name="shellcheck">ShellCheck: https://www.shellcheck.net/</a>
+* <a name="bash">[BASH] https://www.gnu.org/software/bash/</a>
+* <a name="shellcheck">[SHELLCHECK] https://www.shellcheck.net/</a>
