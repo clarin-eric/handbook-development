@@ -51,15 +51,20 @@ if [ -z ${var+x} ]; then echo "var is unset"; else echo "var is set to '$var'"; 
 as described in more detail in [this](https://stackoverflow.com/a/13864829) stackoverflow discussion.
 
 ## Documentation
-<!--
-Describe how to use comments and what to comment
--->
-Type we provide a comment directly after the shebang describing the purpose of the script on a high level.
+Typically we provide a comment directly after the shebang describing the purpose of the script on a high level.
+Furthermore functions should have a short comment explaining the purpose of the function, the support inputs and ouputs.
 
+A bash script should always support the `-h`, `--help` parameters. When provided the script should give a meaningfull summary
+of its usage and it's parameters.
 
 ## Build tools & Continuous Integration
 
-When using the [CLARIN build image](https://gitlab.com/CLARIN-ERIC/build-image), shellcheck linting can be enabled on [gitlab.com](https://gitlab.com) as follows:
+When using the [CLARIN build image](https://gitlab.com/CLARIN-ERIC/build-image), shellcheck linting can be enabled
+on [gitlab.com](https://gitlab.com) as follows:
+1. Add a `lint` stage to the `stages` section.
+2. Add a command `shell-check` (or any other appropriate name) to the `lint` stage with the script `./build.sh --lint-shell`.
+
+Example:
 ```
 variables:
     GIT_SUBMODULE_STRATEGY: recursive
@@ -87,4 +92,4 @@ While advocating unit testing in general, we typically don't run unit tests for 
 we don't have experience with this tool.
 
 ## Static code analysis
-Scripts analysis is achieved by linting via the [shellcheck](https://www.shellcheck.net/) utility.
+Script analysis is achieved by linting via the [shellcheck](https://www.shellcheck.net/) utility.
