@@ -2,7 +2,7 @@
 
 Automation of tasks, either locally or on our servers, should be implemented in Bash [[BASH]](#bash) if possible.
 
-Any shell script ***SHOULD*** always be written in bash, using the following shebang:
+❗ Any shell script ***SHOULD*** always be written in bash, using the following shebang:
 ```
 #!/usr/bin/env bash
 ```
@@ -25,7 +25,7 @@ it is possible to implement the task in a different language, preferably resulti
 
 # Code style
 
-Scripts ***SHOULD*** be linted via the ShellCheck [[SHELLCHECK]](#shellcheck) utility. Hints should be considered, 
+❗ Scripts ***SHOULD*** be linted via the ShellCheck [[SHELLCHECK]](#shellcheck) utility. Hints should be considered, 
 however we aim to be pragmatic and if needed a specific hint can be ignored.
 
 Google has a nice style guide [[GOOGLESTYLE]](#googlestyle) regarding shell scripts.
@@ -54,10 +54,11 @@ if [ -z ${var+x} ]; then echo "var is unset"; else echo "var is set to '$var'"; 
 as described in more detail in this [[STACKOVERFLOW]](#stackoverflow) stackoverflow discussion.
 
 # Documentation
-Typically we ***SHOULD*** provide a comment directly after the shebang describing the purpose of the script on a high level.
-Furthermore functions ***SHOULD*** have a short comment explaining the purpose of the function, the support inputs and ouputs.
+❗ Typically we ***SHOULD*** provide a comment directly after the shebang describing the purpose of the script on a high level.
 
-A bash script ***SHOULD*** always support the `-h`, `--help` parameters. When called with this argument the script gives 
+❗ Furthermore functions ***SHOULD*** have a short comment explaining the purpose of the function, the support inputs and ouputs.
+
+❗ A bash script ***SHOULD*** always support the `-h`, `--help` parameters. When called with this argument the script gives 
 a meaningful summary of its usage and it's parameters.
 
 # Build tools & Continuous Integration
