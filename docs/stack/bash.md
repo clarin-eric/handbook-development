@@ -22,12 +22,12 @@ Disadvantages:
 We leave it up to the developer / sysop to judge if and when a script becomes too long and too difficult to maintain. If implementing in Bash is not possible or considered not suitable
 it is possible to implement the task in a different language, preferably resulting an excutable binary.
 
-## Code style
+# Code style
 
-Scripts should be linted via the shellcheck [[SHELLCHECK]](#shellcheck) utility. Hints should be considered, however we should be pragmatic
+Scripts should be linted via the ShellCheck [[SHELLCHECK]](#shellcheck) utility. Hints should be considered, however we should be pragmatic
 and if needed a specific hint can be ignored.
 
-Google has a nice style guide regarding shell scripts, it is available [here](https://google.github.io/styleguide/shellguide.html).
+Google has a nice style guide [[GOOGLESTYLE]](#googlestyle) regarding shell scripts.
 
 Some important highlights from this guide:
 * Always use .sh or .bash extension for shell scripts.
@@ -48,19 +48,19 @@ Checking if a variable is set:
 ```
 if [ -z ${var+x} ]; then echo "var is unset"; else echo "var is set to '$var'"; fi
 ```
-as described in more detail in [this](https://stackoverflow.com/a/13864829) stackoverflow discussion.
+as described in more detail in this [[STACKOVERFLOW]](#stackoverflow) stackoverflow discussion.
 
-## Documentation
+# Documentation
 Typically we provide a comment directly after the shebang describing the purpose of the script on a high level.
 Furthermore functions should have a short comment explaining the purpose of the function, the support inputs and ouputs.
 
 A bash script should always support the `-h`, `--help` parameters. When provided the script should give a meaningfull summary
 of its usage and it's parameters.
 
-## Build tools & Continuous Integration
+# Build tools & Continuous Integration
 
-When using the [CLARIN build image](https://gitlab.com/CLARIN-ERIC/build-image), shellcheck linting can be enabled
-on [gitlab.com](https://gitlab.com) as follows:
+When using the CLARIN build image [[BUILDIMAGE]](#buildimage), ShellCheck linting can be enabled
+on gitlab.com [[GITLAB]](#gitlab) as follows:
 1. Add a `lint` stage to the `stages` section.
 2. Add a command `shell-check` (or any other appropriate name) to the `lint` stage with the script `./build.sh --lint-shell`.
 
@@ -87,13 +87,22 @@ shell-check:
 ...
 ```
 
-## Testing tools
-While advocating unit testing in general, we typically don't run unit tests for bash. A solution that has been mentioned is [bash unit](https://github.com/pgrange/bash_unit), however
+# Testing tools
+While advocating unit testing in general, we typically don't run unit tests for bash. A solution that has been mentioned is bash unit [[BASHUNIT]](#bashunit), however
 we don't have experience with this tool.
 
-## Static code analysis
-Script analysis is achieved by linting via the [shellcheck](https://www.shellcheck.net/) utility.
+# Static code analysis
+Script analysis is achieved by linting via the ShellCheck utility.
 
 # Further Reading
 * <a name="bash">[BASH] https://www.gnu.org/software/bash/</a>
 * <a name="shellcheck">[SHELLCHECK] https://www.shellcheck.net/</a>
+* <a name="gitlab">[GITLAB] https://gitlab.com/CLARIN-ERIC/build-image</a>
+* <a name="buildimage">[BUILDIMAGE] https://gitlab.com/CLARIN-ERIC/deploy-script</a>
+* <a name="stackoverflow">[STACKOVERFLOW] https://stackoverflow.com/a/13864829</a>
+* <a name="bashunit">[BASHUNIT] https://github.com/pgrange/bash_unit</a>
+* <a name="googlestyle">[GOOGLESTYLE] https://google.github.io/styleguide/shellguide.html</a>
+
+<!--
+* <a name="">[]</a>
+-->
