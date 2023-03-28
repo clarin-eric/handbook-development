@@ -95,4 +95,4 @@ we don't have experience with this tool.
 Script analysis is achieved by linting via the [shellcheck](https://www.shellcheck.net/) utility.
 
 # Further Reading
-1. <a name="bash">https://www.gnu.org/software/bash/</a>
+1. <a name="bash">Bash [https://www.gnu.org/software/bash/](https://www.gnu.org/software/bash/)</a>
