@@ -14,6 +14,24 @@ Strategy for base images
 Strategy for application images
 -->
 
+Our applications and services are packed as container images, following the [open container initiative (OCI)](https://opencontainers.org/) specification,
+using [Docker](https://www.docker.com/). Container should run one process per container in the foreground. For the CLARIN infrastructre we have created
+a base image, based on the [alpine linux](https://www.alpinelinux.org/) [docker image](https://hub.docker.com/_/alpine), which provides a supervisord daemon as the main process. The supervisord daemon manages a couple of additional processes
+aimed at streamlining integration into our infrastructure. These processes are:
+* td-agent, to tag and manage log output in the single stdout stream of the container. Typically applications such as nginx, postgres, tomcat, etc write
+multiple log files with different types of information. Td-agent allows us to tag each of these streams so that these can be identified in the single
+container stdout stream.
+* cron, a cron deamon to periodically run tasks inside the container. This is used sparsely and might be removed at a later point in time.
+* logrotate, because we have processes running inside the container that write log data to files, we use the logrotate daemon to be able to ensure
+log files are properly rotated and cleaned.
+
+Container images that go together are grouped into projects via [docker compose](https://docs.docker.com/compose/).
+
+Projects are what we deploy and run on our infrastructure via the CLARIN [deploy script](https://gitlab.com/CLARIN-ERIC/deploy-script).
+
+Docker compose yaml version 3.1
+
+
 # Code style
 <!--
 Dockerfiles
