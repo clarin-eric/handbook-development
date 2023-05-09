@@ -30,6 +30,7 @@ extra_css:
 nav:
   - Home: index.md
   - 'General guidelines':
+    - 'Documentation': general-guidelines/documentation.md
     - 'Logging': general-guidelines/logging.md
     - 'Configuration': general-guidelines/configuration.md
     - 'API development': general-guidelines/api.md
