@@ -1,0 +1,17 @@
+name: Test build site
+on:
+  pull_request:
+  push:
+    branches:
+      - 'test-build'
+
+jobs:
+  test:
+    name: Test build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Build docs
+        uses: mhausenblas/mkdocs-deploy-gh-pages@1.26
