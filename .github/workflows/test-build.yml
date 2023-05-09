@@ -1,9 +1,6 @@
 name: Test build site
 on:
   pull_request:
-  push:
-    branches:
-      - 'test-build'
 
 jobs:
   test:
