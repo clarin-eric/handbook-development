@@ -16,6 +16,9 @@ theme:
     - content.action.edit
 plugins:
   - search
+markdown_extensions:
+  - footnotes
+  - tables
 extra:
   social:
     - icon: fontawesome/solid/globe
