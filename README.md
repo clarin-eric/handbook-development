@@ -1,6 +1,7 @@
 **Read the docs at [clarin-eric.github.io/handbook-development](https://clarin-eric.github.io/handbook-development/)**
 
 # Sources for the CLARIN ERIC Software Development Guidelines
+
 [![Publication to GitHub Pages](https://github.com/clarin-eric/handbook-development/actions/workflows/publish.yml/badge.svg)](https://github.com/clarin-eric/handbook-development/actions/workflows/publish.yml)
 
 This repository provides the content and configurations for the CLARIN ERIC Software
@@ -14,8 +15,8 @@ Do **not** modify the `gh-pages` branch directly!
 
 ### Make or request changes to an existing section
 
-* Edit the section that you want to work on in a fork or separate branch. 
-* When done, create a pull request. 
+* Edit the section that you want to work on in a fork or separate branch.
+* When done, create a pull request.
 
 You may also create an issue and assign it to the owner of the relevant section.
 
@@ -25,8 +26,7 @@ You may also create an issue and assign it to the owner of the relevant section.
 * Make a feature branch on this repository or a fork
 * Create a new markdown file for your section and create the content
 * Create the necessary folder structure if necessary
-* Make the necessary changes to the tabe of contents and/or 
-[navigation configuration](./mkdocs.yml)
+* Make the necessary changes to the tabe of contents and/or [navigation configuration](./mkdocs.yml)
 * When ready to be reviewed, create a pull request
 
 ## Building and deploying
@@ -50,7 +50,7 @@ Alternatively install `mkdocs` and `mkdocs-material` via pip and run
 
 ### Deployment to GitHub pages
 
-Changes pushed to the `main` branch will automatically be deployed to 
+Changes pushed to the `main` branch will automatically be deployed to
 [GitHub pages](https://clarin-eric.github.io/handbook-development) using the
 [mkdocs-deploy-gh-pages action](https://github.com/mhausenblas/mkdocs-deploy-gh-pages).
 
