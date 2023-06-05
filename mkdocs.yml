@@ -31,7 +31,8 @@ extra_css:
   - stylesheets/clarin-colours.css
       
 nav:
-  - Home: index.md
+  - 'Home': index.md
+  - 'Meta guidelines': meta-guidelines.md
   - 'General guidelines':
     - 'Documentation': general-guidelines/documentation.md
     - 'Logging': general-guidelines/logging.md
