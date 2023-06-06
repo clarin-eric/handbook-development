@@ -3,6 +3,24 @@
 This section presents some guidelines for the writing and maintenance
 of this handbook.
 
+## Scope
+
+{TODO: review/revisit this section}
+
+The development handbook is aimed to give guidelines and best practices for the
+development process. Strictly operational matters should be avoided
+here, and rather be included in the [operational handbook](https://clarin-eric.github.io/handbook-operations/).
+
+As a rule of thumb, the following distinction can be kept in mind:
+
+* 👉 Anything that (also) happens on your **local machine** `SHOULD` be done in
+  line with the development handbook.
+* 👉 Anything that (also) happens in the **infrastructure** (in a broad sense?),
+  or where **roles & responsibilities** come into play,
+  `SHOULD` be done according to the operational handbook.
+
+Note that most processes involve both development and operational aspects.
+
 ## Structure
 
 * 👉 Each page `MUST` have a level 1 heading (`#`) for the title of the section
@@ -25,26 +43,12 @@ of this handbook.
   below for an example)
 * 👉 The markdown for each page `MUST` pass linting with
   [markdownlint](https://github.com/markdownlint/markdownlint) (see rules[^RULES]).
+    * {TODO: hint about CI and local linting}
 
 ## Content
 
-The handbook is aimed to give guidelines and best practices for the
-development process. Strictly operational matters should be avoided
-here, and rather bes included in the [operational handbook](https://clarin-eric.github.io/handbook-operations/).
-
-As a rule of thumb, the following distinction can be kept in mind:
-
-* 👉 Anything that (also) happens on your **local machine** `SHOULD` be done in
-  line with the development handbook.
-* 👉 Anything that (also) happens in the **infrastructure** (in a broad sense?),
-  and where **roles & responsibilities** come into play,
-  `SHOULD` be done according to the operational handbook.
-
-Note that many or even most processes involve both development and
-operational aspects.
-
-* 👉 References to sources and relevant related resources `SHOULD` be included where
-  applicable. Use footnotes as described above.
+* 👉 References to information sources and other relevant related resources `SHOULD`
+  be included where applicable. Use footnotes as described above.
 
 [^FOOTNOTES]: [GitHub blog: "Footnotes now supported in Markdown fields"](https://github.blog/changelog/2021-09-30-footnotes-now-supported-in-markdown-fields/)
 [^RULES]: [Markdownlint repository: `docs/RULES.md`](https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md)
