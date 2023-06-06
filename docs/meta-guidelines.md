@@ -32,6 +32,7 @@ Note that most processes involve both development and operational aspects.
 ## Style
 
 * 👉 Mark concrete guidelines with the 👉 emoji
+* {TODO: Marking of policies, hints?}
 * 👉 Sets of related guidelines `SHOULD` be enumerated using **unordered lists**
   (as used here)
 * 👉 Important keywords `MAY` be highlighted using `**` emphasis markup
