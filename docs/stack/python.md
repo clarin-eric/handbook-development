@@ -30,40 +30,40 @@ SHOULD use [Sphinx](https://sphinx-rtd-tutorial.readthedocs.io/en/latest/docstri
 
 List of recommended packages for specific applications.
 
-## Django
+### Django
 
 For web applications we use [Django](https://docs.djangoproject.com/) by default. Always strive for latest LTS Django support.
 
-## Django REST framework
+### Django REST framework
 
 SHOULD use [Django-rest-framework](https://www.django-rest-framework.org/) for REST API implementation. Other solutions like Flask are also fine, but we have no experience in working with any of them. Developers are free to explore other options and in future expand on this section.
 
-## XML processing
+### XML processing
 
 For `.xml` files processing SHOULD use [lxml](https://lxml.de/).
 
-## Logging
+### Logging
 
 By default SHOULD use Python's core [logging](https://docs.python.org/3/library/logging.html) package. Django logging utilises core Python logging making it fully compatible.
 
-# Build config & CI
+## Build config & CI
 
 Use `pip` as default package manage:
 * On Alpine [package registry](https://pkgs.alpinelinux.org/packages) has priority over PyPi (don't install/build with `pip` if `apk` available). Read more about [using Alpine can make Python Docker builds 50x slower](https://pythonspeed.com/articles/alpine-docker-python/) and [platform tag for Linux distributions using musl (PEP 656)](https://peps.python.org/pep-0656/).
 * With depreciaciation of setuptools strive for [pyproject.toml](https://pip.pypa.io/en/stable/reference/build-system/pyproject-toml/) as default SCM with [Poetry](https://python-poetry.org/) backend. (as of 04.07.2013 some of the setuptools functionalities are still in Beta for `pytoml+poetry` SCM, in case of clashes fall back for legacy setup.py)
 * Build wheels and install package from the wheel [PEP427](https://peps.python.org/pep-0427/) whenever possible. Instalations from `stdist` only as last resort.
 
-# Testing tools
+## Testing tools
 
 List of recommended testing tools
 
-## Unittests
+### Unittests
 
 [Python's core unittest](https://docs.python.org/3/library/unittest.html)
 [Django's unittest extenstion](https://docs.djangoproject.com/en/4.2/topics/testing/overview/)
 [Django-rest-framework unittest extension](https://www.django-rest-framework.org/api-guide/testing/)
 
-## TODO selenium and integration testing
+### TODO selenium and integration testing
 
 ## Common beginner's mistakes
 
