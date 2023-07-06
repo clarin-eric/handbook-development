@@ -1,19 +1,21 @@
-# General
+# Python
+
+## General
 
 [PEP](https://www.python.org/dev/peps/) is a set of Python community guidelines that is a baseline for our guidelines. If you adhere to explicit PEP you can't go wrong, however as it is possible for PEPs to clash with one other we explicitly state preferred standards further. Note, that in the following sections `Python` refers explicitly to `Python3`. `Python2` reached EOL on 1.01.2020. At CLARIN-ERIC we do not operate any legacy `Python2` software and no new developments will take place, therefor we ommit it in this chapter.
 
-## Scope of guidelines applicability
+### Scope of guidelines applicability
 
 Automation of tasks can be conducted using Python, but we highly recommend using Bash as a default scripting language. However, it may be beneficial to use Python in certain applications, e.g. educational content, data manipulation, data visualisation, etc., where the outcome is knowledge not software. We do not impose any explicit requirements and guidelines on Python for non-software code. It is up to the programmer to wage pros and cons of automation using Python in a given context, to be aware of target group and adjust programming practices to the context in which they are applied. Following guidelines apply only to the software meant for deployment in production.
 
-## Environment
+### Environment
 
 MUST use latest Python supported by all other dependencies.
 MUST NOT use your default Python distribution for development environment if your OS comes with one as it can brake system packages dependent on Python.
 MUST NOT update your operating system’s Python installation unless the OS itself wants you to.
 MUST use virtual environment managers. Recommended lightweight core [Venv](https://docs.python.org/3/library/venv.html) or [Anaconda](https://www.anaconda.com/).
 
-## Code style
+### Code style
 
 MUST enforce constistant design choices within each self-standing software/package
 MUST follow [PEP8](https://peps.python.org/pep-0008/) guidelines on code styling
@@ -22,9 +24,9 @@ MUST statically duck type [PEP544](https://peps.python.org/pep-0544/)
 MUST follow minimal docstring conventions [PEP257](https://peps.python.org/pep-0257/)
 SHOULD use [Sphinx](https://sphinx-rtd-tutorial.readthedocs.io/en/latest/docstrings.html) docstring syntax. Any other well defined convention is acceptable, but Sphinx is preferred. Remember to maintain consistant conventions within self-contained packages.
 
-## TODO Python vs Cython
+### TODO Python vs Cython
 
-# Frameworks & libraries
+## Frameworks & libraries
 
 List of recommended packages for specific applications.
 
@@ -50,7 +52,6 @@ Use `pip` as default package manage:
 * On Alpine [package registry](https://pkgs.alpinelinux.org/packages) has priority over PyPi (don't install/build with `pip` if `apk` available). Read more about [using Alpine can make Python Docker builds 50x slower](https://pythonspeed.com/articles/alpine-docker-python/) and [platform tag for Linux distributions using musl (PEP 656)](https://peps.python.org/pep-0656/).
 * With depreciaciation of setuptools strive for [pyproject.toml](https://pip.pypa.io/en/stable/reference/build-system/pyproject-toml/) as default SCM with [Poetry](https://python-poetry.org/) backend. (as of 04.07.2013 some of the setuptools functionalities are still in Beta for `pytoml+poetry` SCM, in case of clashes fall back for legacy setup.py)
 * Build wheels and install package from the wheel [PEP427](https://peps.python.org/pep-0427/) whenever possible. Instalations from `stdist` only as last resort.
-
 
 # Testing tools
 
@@ -82,4 +83,3 @@ def (param: List = None):
 def (param: List = []):
     pass
 ```
-
