@@ -158,7 +158,6 @@ Script analysis is achieved by linting via the ShellCheck[^SHELLCHECK] utility.
 * [^GITLAB] [Build Image GitLab repository](https://gitlab.com/CLARIN-ERIC/build-image)
 * [^BUILDIMAGE] [Deploy Script GitLab repository](https://gitlab.com/CLARIN-ERIC/deploy-script)
 * [^STACKOVERFLOW]
-  [Stackoverflow question: "How to check if a variable is set in Bash"]
-  (https://stackoverflow.com/a/13864829)
+  [Stackoverflow question: "How to check if a variable is set in Bash"](https://stackoverflow.com/a/13864829)
 * [^BASHUNIT] [bash_unit GitHub repository](https://github.com/pgrange/bash_unit)
 * [^GOOGLESTYLE] [Google Shell Style Guide](https://google.github.io/styleguide/shellguide.html)
