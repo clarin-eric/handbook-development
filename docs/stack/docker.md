@@ -17,9 +17,9 @@ images.
     [ ] backup and restore
 [ ] Developing for use outside CLARIN infra context
     [ ] "bundle" control script submodule
-[ ] Name for projects/repositories -> image [TODO: discuss!]
-    [ ] Strategy for base images
-    [ ] Strategy for application images
+[x] Name for projects/repositories -> image [TODO: discuss!]
+    [x] Strategy for base images
+    [x] Strategy for application images
 -->
 
 Our applications and services are packed as container images, following the
@@ -48,24 +48,7 @@ aimed at streamlining integration into our infrastructure. These processes are:
   that writes log data to files, we use the logrotate daemon to be able to
   ensure log files are properly rotated and cleaned.
 
-Most important base images:
-
-* [docker-alpine-base](https://gitlab.com/CLARIN-ERIC/docker-alpine-base)
-   * [docker-alpine-supervisor-base](https://gitlab.com/CLARIN-ERIC/docker-alpine-supervisor-base)
-      * [docker-alpine-supervisor-java-base](https://gitlab.com/CLARIN-ERIC/docker-alpine-supervisor-java-base)
-         * [docker-alpine-supervisor-java-tomcat-base](https://gitlab.com/CLARIN-ERIC/docker-alpine-supervisor-java-tomcat-base)
-      * [docker-alpine-fpm-base](https://gitlab.com/CLARIN-ERIC/docker-alpine-fpm-base)
-
-* 👉 When developing a new image, you `SHOULD` base you image on the 
-  `docker-alpine-supervisor-base` base image or any of its base image
-  descendants.
-
-Container images that go together to offer a functional service, e.g. a
-frontend, backend and a database, are typically grouped into
-deployable projects via [docker compose](https://docs.docker.com/compose/).
-
-* 👉 (Compose) Projects are what we deploy and run on our infrastructure via the
-CLARIN [deploy script](https://gitlab.com/CLARIN-ERIC/deploy-script).
+### Versions
 
 We are currently supporting the following versions:
 
@@ -74,9 +57,68 @@ We are currently supporting the following versions:
 
 `TODO` Provide a link to the operational docker guidelines.
 
-### Image naming
+### Image types and naming
+
+#### Base images
+
+Any image providing some environment intended to be used by other images is
+considered a base image. 
+
+Naming convention:
+
+```
+docker-<base>-<name>-base
+```
+
+Where:
+
+* `<base>` provides and indication of the underlying base image, typically 
+  `alpine` for our base images.
+* `<name>`:  describes the main function of the image.
+
+Example: `docker-alpine-supervisor-base` as the name for the supervisor base 
+image on alpine linux.
+
+Most important base images:
+
+* [docker-alpine-base](https://gitlab.com/CLARIN-ERIC/docker-alpine-base)
+   * [docker-alpine-supervisor-base](https://gitlab.com/CLARIN-ERIC/docker-alpine-supervisor-base)
+      * [docker-alpine-supervisor-java-base](https://gitlab.com/CLARIN-ERIC/docker-alpine-supervisor-java-base)
+         * [docker-alpine-supervisor-java-tomcat-base](https://gitlab.com/CLARIN-ERIC/docker-alpine-supervisor-java-tomcat-base)
+      * [docker-alpine-fpm-base](https://gitlab.com/CLARIN-ERIC/docker-alpine-fpm-base)
 
 
+* 👉 When developing a new image, you `SHOULD` base you image on the 
+  `docker-alpine-supervisor-base` base image or any of its base image
+  descendants in most cases.
+
+#### Regular Images
+
+All other images (images that are not a base image) are considered a regular
+image.
+
+Naming convention:
+
+```
+docker-<name>
+```
+
+Where:
+
+* `<name>`:  describes the main function of the image.
+
+Example: `docker-aai-discovery` as the name for the discovery service frontend
+image.
+
+### Running Containers from Images
+
+Containers started from images that go together to offer a functional
+service, e.g. a frontend, backend and a database, are typically grouped into
+deployable projects via [docker compose](https://docs.docker.com/compose/).
+
+* 👉 (Compose) Projects are what we deploy and run on our infrastructure via the
+CLARIN [deploy script](https://gitlab.com/CLARIN-ERIC/deploy-script).
+* 👉 These projects are started and stopped via the CLARIN [control script](https://gitlab.com/CLARIN-ERIC/control-script).
 
 ## Code style
 <!--
