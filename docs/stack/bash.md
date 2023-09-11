@@ -1,8 +1,12 @@
-# General
+# Bash
+
+This section presents guidelines for the writing and maintenance of bash scripts.
+
+## General
 
 Automation of tasks, either locally or on our servers, should be implemented in Bash [^BASH] if possible.
 
-👉 Any shell script ***SHOULD*** always be written in bash, using the following shebang:
+👉 Any shell script `SHOULD` always be written in bash, using the following shebang:
 ```
 #!/usr/bin/env bash
 ```
@@ -23,18 +27,25 @@ We leave it up to the developer / sysop to judge if and when a script becomes to
 If implementing in Bash is not possible or considered not suitable
 it is possible to implement the task in a different language, preferably resulting an excutable binary.
 
-
 ## Dependencies
-#--> Warn if there are any missing dependencies required to run
-#
-#Ensure awareness of sideeffects
-#The bash script should not make any persistent changes to the environment from which it is called unless there are specific reasons to do so.
-#i.e. use subshells
 
-# Code style
+Scripts can make use of external dependencies to function properly. It is important to be aware of any missing dependencies
+before executing the scripts. Installing depencies automatically from a script can have an impact on other processes 
+running in the same environment and thus should be avoided where possible.
 
-👉 Scripts ***SHOULD*** be linted via the ShellCheck [^SHELLCHECK] utility. Hints should be considered, 
-however we aim to be pragmatic and if needed a specific hint can be ignored.
+The use of subshells [^SUBSHELLS] is considered a good approach to isolate the effects of certain commands are operations.
+
+* 👉 The script `MUST` not make any persistent changes to the environment where it is executed. I.e. install packages.
+* 👉 If the script depends on external tools, it is `SHOULD` check if these dependencies are available and abort execution 
+of the script if any required dependency is missing.
+* 👉 If any required dependency is missing the script `SHOULD` print a warning with a description on how to install the
+dependency.
+
+## Code style
+
+* 👉 Scripts `SHOULD` be linted via the ShellCheck [^SHELLCHECK] utility. 
+* 👉 Hints `SHOULD` be considered and fixed where possible, however we aim to be pragmatic and if needed a specific hint 
+can be ignored.
 
 Google has a nice style guide [^GOOGLESTYLE] regarding shell scripts.
 
@@ -61,12 +72,11 @@ if [ -z ${var+x} ]; then echo "var is unset"; else echo "var is set to '$var'"; 
 ```
 as described in more detail in this [^STACKOVERFLOW] stackoverflow discussion.
 
-# Documentation
-👉 Typically we ***SHOULD*** provide a comment directly after the shebang describing the purpose of the script on a high level.
+## Documentation
 
-👉 Furthermore functions ***SHOULD*** have a short comment explaining the purpose of the function, the support inputs and ouputs.
-
-👉 A bash script ***SHOULD*** always support the `-h`, `--help` parameters. When called with this argument the script gives 
+* 👉 Typically we `SHOULD` provide a comment directly after the shebang describing the purpose of the script on a high level.
+* 👉 Furthermore functions `SHOULD` have a short comment explaining the purpose of the function, the support inputs and ouputs.
+* 👉 A bash script `SHOULD` always support the `-h`, `--help` parameters. When called with this argument the script gives 
 a meaningful summary of its usage and it's parameters.
 
 # Build tools & Continuous Integration
@@ -98,16 +108,17 @@ shell-check:
 ...
 ```
 
-# Testing tools
+## Testing tools
 While advocating unit testing in general, we typically don't run unit tests for bash. A solution that has been mentioned 
 is bash unit [^BASHUNIT], however we don't have experience with this tool.
 
-# Static code analysis
+## Static code analysis
 Script analysis is achieved by linting via the ShellCheck[^SHELLCHECK] utility.
 
 # Further Reading
 * [^BASH] https://www.gnu.org/software/bash/
 * [^SHELLCHECK] https://www.shellcheck.net/
+* [^SUBSHELLS] https://tldp.org/LDP/abs/html/subshells.html
 * [^GITLAB] https://gitlab.com/CLARIN-ERIC/build-image
 * [^BUILDIMAGE] https://gitlab.com/CLARIN-ERIC/deploy-script
 * [^STACKOVERFLOW] https://stackoverflow.com/a/13864829
