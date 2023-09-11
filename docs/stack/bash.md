@@ -8,8 +8,8 @@ scripts.
 Automation of tasks, either locally or on our servers, should be implemented in
 Bash [^BASH] if possible.
 
-👉 Any shell script `SHOULD` always be written in bash, using the following
-shebang:
+* 👉 Any shell script `SHOULD` always be written in bash, using the following
+  shebang:
 
 ```
 #!/usr/bin/env bash
@@ -25,7 +25,7 @@ Advantages:
    * and thus standardizing on bash lowers the learning curve.
    * and thus improving shareability.
    * and thus improving the distributability over multiple people (i.e.
-   reducing the truck number).
+     reducing the truck number).
 
 Disadvantages:
 
@@ -49,18 +49,18 @@ The use of subshells [^SUBSHELLS] is considered a good approach to isolate the
 effects of certain commands are operations.
 
 * 👉 The script `MUST` not make any persistent changes to the environment where
-it is executed. I.e. install packages.
+  it is executed. I.e. install packages.
 * 👉 If the script depends on external tools, it is `SHOULD` check if these
-dependencies are available and abort execution of the script if any required
+  dependencies are available and abort execution of the script if any required
   dependency is missing.
 * 👉 If any required dependency is missing the script `SHOULD` print a warning
-with a description on how to install the dependency.
+  with a description on how to install the dependency.
 
 ## Code style
 
 * 👉 Scripts `SHOULD` be linted via the ShellCheck [^SHELLCHECK] utility.
 * 👉 Hints `SHOULD` be considered and fixed where possible, however we aim to
-be pragmatic and if needed a specific hint can be ignored.
+  be pragmatic and if needed a specific hint can be ignored.
 
 Google has a nice style guide [^GOOGLESTYLE] regarding shell scripts.
 
@@ -70,20 +70,21 @@ Some important highlights from this guide:
 * Always add comment header below shebang with summary of script functionality.
 * Line break before pipeline.
 * Quote variables as `"${foo}"` instead of `$foo` abd commands as `$(foo)`
-instead of `foo`.
+  instead of `foo`.
 * Avoid `eval`.
 * `main` function for scripts longer than a few lines and/or other functions
-and call it in the very end(i.e. last line) of the script, passing all
+  and call it in the very end(i.e. last line) of the script, passing all
   parameters: `main "$@"`.
 * Calling scripts: use `bash script.sh` or `./script.sh` (not `sh script.sh`).
 
 Working directory assumptions:
 
 * Do not make unnecessary assumptions about the current working directory,
-particularly when calling other scripts. If the working directory is important,
-specifically test for it and exit with a warning if there is any issue.
+  particularly when calling other scripts. If the working directory is 
+  important, specifically test for it and exit with a warning if there is any
+  issue.
 * Never change the working directory, instead do work that required another
-directory in a subshell only:
+  directory in a subshell only:
    * Use round brackets to do work in a subshell: `( work )`.
 
 Checking if a variable is set:
@@ -99,11 +100,11 @@ as described in more detail in this [^STACKOVERFLOW] stackoverflow discussion.
 ## Documentation
 
 * 👉 Typically we `SHOULD` provide a comment directly after the shebang
-describing the purpose of the script on a high level.
+  describing the purpose of the script on a high level.
 * 👉 Furthermore functions `SHOULD` have a short comment explaining the purpose
-of the function, the support inputs and ouputs.
+  of the function, the support inputs and ouputs.
 * 👉 A bash script `SHOULD` always support the `-h`, `--help` parameters. When
-called with this argument the script gives a meaningful summary of its usage
+  called with this argument the script gives a meaningful summary of its usage
   and it's parameters.
 
 ## Build tools & Continuous Integration
@@ -113,7 +114,7 @@ enabled on gitlab.com [^GITLAB] as follows:
 
 1. Add a `lint` stage to the `stages` section.
 2. Add a command `shell-check` (or any other appropriate name) to the `lint`
-stage with the script `./build.sh --lint-shell`.
+   stage with the script `./build.sh --lint-shell`.
 
 Example:
 
@@ -156,6 +157,7 @@ Script analysis is achieved by linting via the ShellCheck[^SHELLCHECK] utility.
 * [^SUBSHELLS] [Advanced Bash-Scripting Guide: Chapter 21. Subshells](https://tldp.org/LDP/abs/html/subshells.html)
 * [^GITLAB] [Build Image GitLab repository](https://gitlab.com/CLARIN-ERIC/build-image)
 * [^BUILDIMAGE] [Deploy Script GitLab repository](https://gitlab.com/CLARIN-ERIC/deploy-script)
-* [^STACKOVERFLOW] [Stackoverflow question: "How to check if a variable is set in Bash"](https://stackoverflow.com/a/13864829)
+* [^STACKOVERFLOW] 
+[Stackoverflow question: "How to check if a variable is set in Bash"](https://stackoverflow.com/a/13864829)
 * [^BASHUNIT] [bash_unit GitHub repository](https://github.com/pgrange/bash_unit)
 * [^GOOGLESTYLE] [Google Shell Style Guide](https://google.github.io/styleguide/shellguide.html)
