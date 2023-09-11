@@ -14,6 +14,7 @@ Automation of tasks, either locally or on our servers, should be implemented in 
 Any task that has to be done more than once is a good candidate to automate with a shell script.
 
 Advantages:
+
 * Supported on most *-nixes and OSX.
 * Many developers and sysops are familiar with Bash:
   * and thus standardizing on bash lowers the learning curve.
@@ -21,16 +22,17 @@ Advantages:
   * and thus improving the distributability over multiple people (i.e. reducing the truck number).
 
 Disadvantages:
+
 * Can become long and complex and thus harder to maintain.
 
-We leave it up to the developer / sysop to judge if and when a script becomes too long and too difficult to maintain. 
+We leave it up to the developer / sysop to judge if and when a script becomes too long and too difficult to maintain.
 If implementing in Bash is not possible or considered not suitable
 it is possible to implement the task in a different language, preferably resulting an excutable binary.
 
 ## Dependencies
 
 Scripts can make use of external dependencies to function properly. It is important to be aware of any missing dependencies
-before executing the scripts. Installing depencies automatically from a script can have an impact on other processes 
+before executing the scripts. Installing depencies automatically from a script can have an impact on other processes
 running in the same environment and thus should be avoided where possible.
 
 The use of subshells [^SUBSHELLS] is considered a good approach to isolate the effects of certain commands are operations.
@@ -43,13 +45,14 @@ dependency.
 
 ## Code style
 
-* 👉 Scripts `SHOULD` be linted via the ShellCheck [^SHELLCHECK] utility. 
+* 👉 Scripts `SHOULD` be linted via the ShellCheck [^SHELLCHECK] utility.
 * 👉 Hints `SHOULD` be considered and fixed where possible, however we aim to be pragmatic and if needed a specific hint 
 can be ignored.
 
 Google has a nice style guide [^GOOGLESTYLE] regarding shell scripts.
 
 Some important highlights from this guide:
+
 * Always use .sh or .bash extension for shell scripts.
 * Always add comment header below shebang with summary of script functionality.
 * Line break before pipeline.
@@ -60,13 +63,16 @@ of the script, passing all parameters: `main "$@"`.
 * Calling scripts: use `bash script.sh` or `./script.sh` (not `sh script.sh`).
 
 Working directory assumptions:
+
 * Do not make unnecessary assumptions about the current working directory, particularly when callin other scripts. If 
 the working directory is important, specifically test for it and exit with a warning if there is any issue.
 * Never change the working directory, instead do work that required another directoty in a subshell only:
   * Use round brackets to do work in a subshell: `( work )`.
 
 Checking if a variable is set:
+
 * Just testing `-z ${var}` doesn’t fail for the empty string `""`. Instead use:
+
 ```
 if [ -z ${var+x} ]; then echo "var is unset"; else echo "var is set to '$var'"; fi
 ```
@@ -76,16 +82,18 @@ as described in more detail in this [^STACKOVERFLOW] stackoverflow discussion.
 
 * 👉 Typically we `SHOULD` provide a comment directly after the shebang describing the purpose of the script on a high level.
 * 👉 Furthermore functions `SHOULD` have a short comment explaining the purpose of the function, the support inputs and ouputs.
-* 👉 A bash script `SHOULD` always support the `-h`, `--help` parameters. When called with this argument the script gives 
+* 👉 A bash script `SHOULD` always support the `-h`, `--help` parameters. When called with this argument the script gives
 a meaningful summary of its usage and it's parameters.
 
-# Build tools & Continuous Integration
+## Build tools & Continuous Integration
 
 When using the CLARIN build image [^BUILDIMAGE], ShellCheck linting can be enabled on gitlab.com [^GITLAB] as follows:
+
 1. Add a `lint` stage to the `stages` section.
 2. Add a command `shell-check` (or any other appropriate name) to the `lint` stage with the script `./build.sh --lint-shell`.
 
 Example:
+
 ```
 variables:
     GIT_SUBMODULE_STRATEGY: recursive
@@ -109,18 +117,21 @@ shell-check:
 ```
 
 ## Testing tools
+
 While advocating unit testing in general, we typically don't run unit tests for bash. A solution that has been mentioned 
 is bash unit [^BASHUNIT], however we don't have experience with this tool.
 
 ## Static code analysis
+
 Script analysis is achieved by linting via the ShellCheck[^SHELLCHECK] utility.
 
-# Further Reading
-* [^BASH] https://www.gnu.org/software/bash/
-* [^SHELLCHECK] https://www.shellcheck.net/
-* [^SUBSHELLS] https://tldp.org/LDP/abs/html/subshells.html
-* [^GITLAB] https://gitlab.com/CLARIN-ERIC/build-image
-* [^BUILDIMAGE] https://gitlab.com/CLARIN-ERIC/deploy-script
-* [^STACKOVERFLOW] https://stackoverflow.com/a/13864829
-* [^BASHUNIT] https://github.com/pgrange/bash_unit
-* [^GOOGLESTYLE] https://google.github.io/styleguide/shellguide.html
+## Further Reading
+
+* [^BASH] [GNY Bash website](https://www.gnu.org/software/bash/)
+* [^SHELLCHECK] [Shellcheck website](https://www.shellcheck.net/)
+* [^SUBSHELLS] [Advanced Bash-Scripting Guide: Chapter 21. Subshells](https://tldp.org/LDP/abs/html/subshells.html)
+* [^GITLAB] [Build Image GitLab repository](https://gitlab.com/CLARIN-ERIC/build-image)
+* [^BUILDIMAGE] [Deploy Script GitLab repository](https://gitlab.com/CLARIN-ERIC/deploy-script)
+* [^STACKOVERFLOW] [Stackoverflow question: "How to check if a variable is set in Bash"](https://stackoverflow.com/a/13864829)
+* [^BASHUNIT] [bash_unit GitHub repository](https://github.com/pgrange/bash_unit)
+* [^GOOGLESTYLE] [Google Shell Style Guide](https://google.github.io/styleguide/shellguide.html)
