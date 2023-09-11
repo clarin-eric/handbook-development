@@ -113,7 +113,7 @@ When using the CLARIN build image [^BUILDIMAGE], ShellCheck linting can be
 enabled on gitlab.com [^GITLAB] as follows:
 
 1. Add a `lint` stage to the `stages` section.
-2. Add a command `shell-check` (or any other appropriate name) to the `lint`
+1. Add a command `shell-check` (or any other appropriate name) to the `lint`
    stage with the script `./build.sh --lint-shell`.
 
 Example:
