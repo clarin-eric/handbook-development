@@ -80,7 +80,7 @@ Some important highlights from this guide:
 Working directory assumptions:
 
 * Do not make unnecessary assumptions about the current working directory,
-  particularly when calling other scripts. If the working directory is 
+  particularly when calling other scripts. If the working directory is
   important, specifically test for it and exit with a warning if there is any
   issue.
 * Never change the working directory, instead do work that required another
@@ -157,7 +157,8 @@ Script analysis is achieved by linting via the ShellCheck[^SHELLCHECK] utility.
 * [^SUBSHELLS] [Advanced Bash-Scripting Guide: Chapter 21. Subshells](https://tldp.org/LDP/abs/html/subshells.html)
 * [^GITLAB] [Build Image GitLab repository](https://gitlab.com/CLARIN-ERIC/build-image)
 * [^BUILDIMAGE] [Deploy Script GitLab repository](https://gitlab.com/CLARIN-ERIC/deploy-script)
-* [^STACKOVERFLOW] 
-[Stackoverflow question: "How to check if a variable is set in Bash"](https://stackoverflow.com/a/13864829)
+* [^STACKOVERFLOW]
+  [Stackoverflow question: "How to check if a variable is set in Bash"]
+  (https://stackoverflow.com/a/13864829)
 * [^BASHUNIT] [bash_unit GitHub repository](https://github.com/pgrange/bash_unit)
 * [^GOOGLESTYLE] [Google Shell Style Guide](https://google.github.io/styleguide/shellguide.html)
