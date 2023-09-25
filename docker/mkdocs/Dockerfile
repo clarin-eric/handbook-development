@@ -9,7 +9,6 @@ RUN pip install wheel && \
 	pip install \
 		mkdocs \
 		mkdocs-material \
-		wheel
 
 ENTRYPOINT [ "/usr/bin/mkdocs" ]
 CMD []
