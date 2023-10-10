@@ -8,7 +8,7 @@ RUN apk add --no-cache \
 RUN pip install wheel && \
 	pip install \
 		mkdocs \
-		mkdocs-material \
+		mkdocs-material
 
 ENTRYPOINT [ "/usr/bin/mkdocs" ]
 CMD []
