@@ -2,15 +2,71 @@
 
 {TODO: introduction}
 
+## Version numbering
+
+👉 The format that version numbers `SHOULD` adhere to is `major.minor.patch[-qualifier]`
+where:
+
+- `major`, `minor` and `path` `SHOULD` be integers, and
+-  the optional `qualifier`, if included, `SHOULD`be either `test`, `alpha`,
+`beta` or `RC`, followed by an integer, OR the string `SNAPSHOT`.
+
+Examples:
+
+- Examples of valid version numbers *without qualifiers*: `1.0.0`, `4.11.2`
+- Examples of valid version numbers *with qualifiers*: `3.0.1-alpha1`, `8.6.0-RC2`,
+`2.5.0-SNAPSHOT`
+- Examples of *invalid version numbers*: `1.0`, `2-alpha1`, `3.1.0-beta`
+
+👉 Commit id (git hash) `SHOULD NOT` be used in the version number. It is good
+practice is to include it somewhere in the built application ("About" page and/or
+manifest file).
+
+### Scope
+
+👉 Version numbers `SHOULD` be *aligned* for projects that are maintained in the
+same repository and share a release pipeline (e.g. modules of an application)
+
+👉 Version numbers `SHOULD` be *decoupled* for projects that are released separately
+and/or are maintained in separate repositories.
+
+👉 Semantic version `SHOULD` be applied in the case of libraries and shared APIs
+as described at [semver.org](https://semver.org). More on versioning of APIs
+in the [API section of the handbook](api.md).
+
+### Increasing version numbers
+
+Regarding version number increases, the following guidelines `SHOULD` be considered:
+
+- 👉 The *major* version number is increased 
+	- for major revisions affecting all or most features, or user interface;
+	- when significant features changed fundamentally (or removed?).
+- 👉 The *minor* version number is increased
+	- when new features have been added;
+	- when the underlying framework or other core dependencies have had a major
+  version upgrade.
+- 👉 The *patch* level version number is increased
+	- for bug fixes and small improvements to existing features;
+	- for minor dependency upgrades;
+	- for any other kind of maintenance that does not affect functionality or
+  compatibility.
+- 👉 The *qualifier* can be increased at any point during alpha, beta and release
+candidate development stages. For stable releases, it must be excluded altogether.
+
 ## Releasing
 
 ### Release stages
+
+👉 Break the release process up in the following stages. Promote (or demote)
+according to the descriptions below. Make the release stage explicit in tags
+and version numbers.
 
 - **Alpha**: Feature developments
 	- Dependencies can still change, including updates to new minor versions
 - **Beta**: Feature freeze
 	- Bug fixes and feature enhancements
 	- Dependency checks, update to latest within minor
+	- Version control: branch off from development
 - **Release candidate**
 	- Bugs must be fixed or documented as known issues
 	- Final dependency checks, main focus on security (high and critical
@@ -32,171 +88,43 @@
 release (e.g. `3.18.4 / Java 17.0.9`)
 
 
-
-## Version numbering
-
--   Version numbering
-
--   Scope
-
--   Service or application components are versioned separately?
-
--   Independent version numbering for
-
--   Projects that are released separately
-
--   Projects that are version controlled separately (multi-repo)
-
--   Synchronised version numbers acceptable only for
-
--   projects that are maintained in the same repository (mono-repo)
-
--   For libraries
-
--   Semantic versioning -> <https://semver.org/>
-
--   Published APIs
-
--   See [Versioning](https://docs.google.com/document/d/1xnh13Xo1Lrn8KHNAj7NP4yjMIw4xk64Pq7ClQf-XuSs/edit#heading=h.p1c1zaeupud0)
-
--   No tight coupling between specification version and implementation version
-
--   Note: one service can implement multiple (versions of) specifications
-
--   For applications
-
--   Major
-
--   Increase for major revisions affecting all or most features, or user interface
-
--   Increase when significant features changed fundamentally( or removed)?
-
--   Minor
-
--   Increase for new feature(s)
-
--   Increase for major dependency upgrades??
-
--   Patch
-
--   Increase for bug fixes and small improvements to existing features
-
--   Increase for minor dependency upgrades
-
--   Alpha and beta releases, release candidates
-
--   Feature freeze from beta on
-
--   Keep version number (x.y.z) persistent from alpha to release
-
--   The final release should be identical (same revision) to the last release candidate
-
--   Versioning docker images
-
--   Single application centered images
-
--   Strategy: ${APP_VERSION}-${N}
-
--   Where N is an integer that is incremented with each release.
-
--   Could alternatively include a qualifier such as 'test'??
-
--   Image version (increment) resets for every app version, so there can be 1.0.0-1 ; 1.0.0-2; 1.1.0-1
-
--   Examples:
-
-|
-
-App v.
-
- |\
- |
-
-Image v.
-
- |
-
-Combined
-
- |
-|
-
-1.0.0
-
- |
-
-_
-
- |
-
-1.0.0
-
- |
-
-app-1.0.0_1.0.0
-
- |
-|
-
-1.1.0-alpha1
-
- |
-
-_
-
- |
-
-1.0.0
-
- |
-
-app-1.1.0-alpha1_1.0.0
-
-***or****:*
-
-*app-1.1.0_1.0.0*
-
- |
-|
-
-1.1.0-beta2
-
- |
-
-_
-
- |
-
-1.0.0-test1
-
- |
-
-app-1.1.0-beta2_1.0.0-test1
-
-***or****:*
-
-*app-1.1.0_1.0.0-test1*
-
- |
-
--   'Environment providing' images (e.g. alpine, java, tomcat base images)
-
--   Independent version numbering
-
--   For compose projects
-
--   Alignment with application like for docker image IFF there is a single application with a single version number it is built around
-
--   Otherwise use independent version numbering (suite version)
-
--   Take care of naming ('suite' should ideally have its own name)
-
--   Usage of commit id (git hash)
-
--   Do NOT use in version number
-
--   Good practice to include it somewhere in the built application (about page or manifest)
-
+### Docker image versioning
+
+👉  The following approach `SHOULD` be followed for *application images* and
+`MAY` be followed for other images that are centred around a specific version of
+a platform or environment:
+
+- Scheme for the version number/tag is `{APP_VERSION}_{X.Y.Z}`  
+    - Where `{X.Y.Z}` is a version that follows the guidlines above and starts with
+`1.0.0` for each new value of `{APP_VERSION}`
+    - `{APP_VERSION}` `MAY` include qualifiers such as `alpha1`, but `{X.Y.Z}`
+  `SHOULD` consist of three dot separated digits only
+    - `{APP_VERSION}` `MAY` be reduced to a significant level such as `{major.minor}`
+    or in some cases even just `{major}` 
+    - Resetting of the image version resets for every app version, so there will be,
+  for instance, `1.0_1.0.0`, followed by `1.0_2.0.0` and `1.1_1.0.0`.
+    -  Examples:
+
+| App v.       |   | Image v. | Combined               |
+|--------------|---|----------|------------------------|
+| 1.0.0        | _ | 1.0.0    | app-1.0.0_1.0.0        |
+| 1.1.0-alpha1 | _ | 1.2.2    | app-1.1.0-alpha1_1.2.2 |
+
+
+👉 For *base images* and other images that provide a platform or 'environment'
+rather than an application (e.g. alpine, java, tomcat, nginx), version numbering
+`MAY` follow the same scheme as applications (`major.minor.path[-qualifier]`).
+
+### Docker compose projects
+
+👉 The following approach `SHOULD` be followed for compose projects:
+
+- IFF there is a single application with a single version number it is built
+around, follow the same scheme as for application docker images (`{APP_VERSION}_{X.Y.Z}`)
+- Otherwise use 'independent' version numbering (suite version)
+- Naming of the project typically reflects whether it is application centered or
+a 'suite'. In the latter case it has (or could have) a name that is different to
+one of the included services.
 
 ## Branching, merging strategies
 
