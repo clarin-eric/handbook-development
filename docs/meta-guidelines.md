@@ -5,8 +5,6 @@ of this handbook.
 
 ## Scope
 
-{TODO: review/revisit this section}
-
 The development handbook is aimed to give guidelines and best practices for the
 development process. Strictly operational matters should be avoided
 here, and rather be included in the [operational handbook](https://clarin-eric.github.io/handbook-operations/).

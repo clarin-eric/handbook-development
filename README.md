@@ -18,7 +18,7 @@ Do **not** modify the `gh-pages` branch directly!
 * Make a feature branch on this repository or a fork
 * If it does not yet exist, create a new markdown file for your section and
   create the content (if necessary, also create the necessary folder structure)
-* Make the necessary changes to the tabe of contents and/or
+* Make the necessary changes to the table of contents and/or
   [navigation configuration](./mkdocs.yml)
 * `Optional but recommended`: Make a pull request, and set it to draft mode.
   Find at least one reviewer and assign them to the PR. Use Slack or face to
