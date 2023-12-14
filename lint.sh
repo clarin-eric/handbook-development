@@ -5,4 +5,5 @@ SCRIPT_DIR="$(cd -P -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
 echo "Linting README" \
 	&& bash "${SCRIPT_DIR}/mdl.sh" 'README.md' \
 	&& echo "Linting docs" \
-	&& WORKDIR="${SCRIPT_DIR}/docs" bash "${SCRIPT_DIR}/mdl.sh" .
+	&& export WORKDIR="${SCRIPT_DIR}/docs" \
+	&& find "${WORKDIR}" -type f -name '*.md'| xargs bash "${SCRIPT_DIR}/mdl.sh"
