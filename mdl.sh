@@ -6,5 +6,5 @@ echo "Building mdl image"
 docker build --quiet --tag 'mdl:latest' "${SCRIPT_DIR}/docker/mdl"
 
 docker run --rm --name markdown_lint \
-	-v "$(pwd):$(pwd)" -w "$(pwd)" \
+	-v "$(pwd):$(pwd)" -w "${WORKDIR:-$(pwd)}" \
 	'mdl:latest' "$@"
