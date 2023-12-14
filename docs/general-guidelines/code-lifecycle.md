@@ -7,9 +7,10 @@
 👉 The format that version numbers `SHOULD` adhere to is `major.minor.patch[-qualifier]`
 where:
 
-- `major`, `minor` and `path` `SHOULD` be integers, and
--  the optional `qualifier`, if included, `SHOULD`be either `test`, `alpha`,
-`beta` or `RC`, followed by an integer, OR the string `SNAPSHOT`.
+- `major`, `minor` and `patch` `SHOULD` be integers, and
+-  the optional `qualifier`, if included, `SHOULD` be either `test`, `alpha`,
+`beta` or `RC`, followed by an integer, OR a string such as `dev`, `SNAPSHOT`
+[in case of work in progress].
 
 Examples:
 
@@ -30,22 +31,30 @@ same repository and share a release pipeline (e.g. modules of an application)
 👉 Version numbers `SHOULD` be *decoupled* for projects that are released separately
 and/or are maintained in separate repositories.
 
-👉 Semantic version `SHOULD` be applied in the case of libraries and shared APIs
+### Increasing version numbers
+
+👉 When releasing a new version of a software component or other project,
+_one_ of the version components `SHOULD` be increased (major, minor, patch
+or qualifier), typically by `+1`.
+
+👉 Semantic versioning `SHOULD` be applied in the case of libraries and shared APIs
 as described at [semver.org](https://semver.org). More on versioning of APIs
 in the [API section of the handbook](api.md).
 
-### Increasing version numbers
+Regarding version number increases, the following guidelines are to be considered:
 
-Regarding version number increases, the following guidelines `SHOULD` be considered:
-
-- 👉 The *major* version number is increased 
-	- for major revisions affecting all or most features, or user interface;
-	- when significant features changed fundamentally (or removed?).
-- 👉 The *minor* version number is increased
+- 👉 The *major* version number `SHOULD` be increased 
+	- for major revisions affecting all or most features, or most of the
+	  user interface;
+	- if significant features changed or reimplemented fundamentally,
+	  or removed;
+	- if compatibility with existing configurations is broken;
+	- if public access paths (i.e. URLs) have changed in an incompatible way.
+- 👉 The *minor* version number `SHOULD` be increased
 	- when new features have been added;
 	- when the underlying framework or other core dependencies have had a major
   version upgrade.
-- 👉 The *patch* level version number is increased
+- 👉 The *patch* level version number `SHOULD` be increased
 	- for bug fixes and small improvements to existing features;
 	- for minor dependency upgrades;
 	- for any other kind of maintenance that does not affect functionality or
@@ -55,26 +64,37 @@ candidate development stages. For stable releases, it must be excluded altogethe
 
 ## Releasing
 
-### Release stages
+### Lifecycle stages
 
-👉 Break the release process up in the following stages. Promote (or demote)
-according to the descriptions below. Make the release stage explicit in tags
-and version numbers.
+👉 The release process `SHOULD` be broken up into the following stages.
+Promote (or demote) according to the descriptions below. The version number
+(and therefore tag) `SHOULD` reflect the lifecycle stage in the value and/or
+presence of the qualifier part of the version number.
 
 - **Alpha**: Feature developments
+    - Stability and functionality do not have to be guaranteed
 	- Dependencies can still change, including updates to new minor versions
+	- Alpha status should be clear to the end user in the application's 
+	  interface (if applicable) 
 - **Beta**: Feature freeze
 	- Bug fixes and feature enhancements
-	- Dependency checks, update to latest within minor
+	- Dependency checks, update to latest within minor and apply any
+	  available security updates
 	- Version control: branch off from development
+	- Beta status should be clear to the end user in the application's 
+	  interface (if applicable) 
 - **Release candidate**
-	- Bugs must be fixed or documented as known issues
+	- Bugs are either fixed or documented as known issues
 	- Final dependency checks, main focus on security (high and critical
 	vulnerabilities must be resolved or else documented)
 	- Write or finalise a change log and upgrade instructions
 - **Release**
 	- Should be identical to the last release candidate except for the 
-	version number
+	  version number
+	
+### Hotfixes
+
+{TODO}
 
 ### Publication
 
