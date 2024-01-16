@@ -42,7 +42,7 @@ Note that most processes involve both development and operational aspects.
   below for an example)
 * 👉 The markdown for each page `MUST` pass linting with
   [markdownlint](https://github.com/markdownlint/markdownlint) (see rules[^RULES]).
-  * TODO: hint about CI and local linting
+   * TODO: hint about CI and local linting
 
 ## Content
 
