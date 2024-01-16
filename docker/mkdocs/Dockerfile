@@ -5,7 +5,8 @@ RUN apk add --no-cache \
 		'py3-pip=22.3.1-r1'
 
 # Install mkdocs
-RUN pip install \
+RUN pip install wheel && \
+	pip install \
 		mkdocs \
 		mkdocs-material
 
