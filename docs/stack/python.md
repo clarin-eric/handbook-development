@@ -10,22 +10,22 @@ Automation of tasks can be conducted using Python, but we highly recommend using
 
 ### Environment
 
-👉 MUST use latest Python supported by all other dependencies.
-👉 MUST NOT use your default Python distribution for development environment if your OS comes with one as it can brake system packages dependent on Python.
-👉 MUST NOT update your default OS Python.
-👉 MUST NOT alter your default `python/python3` 
-👉 MUST use virtual environment manager. Recommended lightweight core [Venv](https://docs.python.org/3/library/venv.html) or [Anaconda](https://www.anaconda.com/).
+* 👉 MUST use latest Python supported by all other dependencies.
+* 👉 MUST NOT use your default Python distribution for development environment if your OS comes with one as it can brake system packages dependent on Python.
+* 👉 MUST NOT update your default OS Python.
+* 👉 MUST NOT alter your default `python/python3` 
+* 👉 MUST use virtual environment manager. Recommended lightweight core [Venv](https://docs.python.org/3/library/venv.html) or [Anaconda](https://www.anaconda.com/).
 
 ### Code style
 
-👉 MUST enforce constistant design choices within each self-standing software/package
-👉 MUST follow [PEP8](https://peps.python.org/pep-0008/) guidelines on code styling
-👉 MUST strive for highest possible static type hint coverage  [PEP484](https://peps.python.org/pep-0484/)
-&emsp;(if framework documentation doesn't expose the types or uses `x: Any` you are excused)
-👉 MUST strive for highest possible duck type hint converage [PEP544](https://peps.python.org/pep-0544/)
-&emsp;(if framework documentation doesn't expose the protocols or uses `x: Any` you are excused)
-👉 MUST follow minimal docstring conventions [PEP257](https://peps.python.org/pep-0257/)
-👉 SHOULD use [Sphinx](https://sphinx-rtd-tutorial.readthedocs.io/en/latest/docstrings.html) docstring syntax. Any other well defined convention is acceptable, but Sphinx is preferred. Remember to maintain consistant conventions within self-contained packages.
+* 👉 MUST enforce constistant design choices within each self-standing software/package
+* 👉 MUST follow [PEP8](https://peps.python.org/pep-0008/) guidelines on code styling
+* 👉 MUST strive for highest possible static type hint coverage  [PEP484](https://peps.python.org/pep-0484/)
+* &emsp;(if framework documentation doesn't expose the types or uses `x: Any` you are excused)
+* 👉 MUST strive for highest possible duck type hint converage [PEP544](https://peps.python.org/pep-0544/)
+* &emsp;(if framework documentation doesn't expose the protocols or uses `x: Any` you are excused)
+* 👉 MUST follow minimal docstring conventions [PEP257](https://peps.python.org/pep-0257/)
+* 👉 SHOULD use [Sphinx](https://sphinx-rtd-tutorial.readthedocs.io/en/latest/docstrings.html) docstring syntax. Any other well defined convention is acceptable, but Sphinx is preferred. Remember to maintain consistant conventions within self-contained packages.
 
 ## Frameworks & libraries
 
@@ -37,7 +37,7 @@ We currently use [Django](https://docs.djangoproject.com/) for MVC apps. Always 
 
 ### Django REST framework
 
-`SHOULD` use [Django-rest-framework](https://www.django-rest-framework.org/) for REST API implementation. Other non-Django solutions like Flask are also fine, but we have no experience in working with any of them. Developers are free to explore other options. 
+We currently use [Django-rest-framework](https://www.django-rest-framework.org/) for REST API implementation. Other non-Django solutions like Flask are also fine, but we have no experience in working with any of them. Developers are free to explore other options. 
 
 ### XML processing
 
@@ -56,8 +56,8 @@ Use `pip` as default package manage:
 * 👉 With depreciaciation of setuptools strive for [pyproject.toml](https://pip.pypa.io/en/stable/reference/build-system/pyproject-toml/) as default SCM with [Poetry](https://python-poetry.org/) backend. (as of 04.07.2023 some of the setuptools functionalities are still in Beta for `pytoml+poetry` SCM, in case of clashes fall back for legacy setup.py)
 
 ## Testing
-👉 Yes 🗿
-👉 The more tests the better .
+* 👉 Yes 🗿
+* 👉 The more tests the better .
 
 ### Testing tools
 
@@ -73,7 +73,7 @@ List of recommended testing tools
 
 ## Common beginner's mistakes
 
-👉 MUST NOT use mutable default parameters values in functions, unless having a very good reason to do so. (explicitly and exhaustively document its usage with rationale for such design choice):
+* 👉 MUST NOT use mutable default parameters values in functions, unless having a very good reason to do so. (explicitly and exhaustively document its usage with rationale for such design choice):
 
 ```Python
 """
