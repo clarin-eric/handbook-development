@@ -13,21 +13,25 @@ This is currently work in progress.
 
 Do **not** modify the `gh-pages` branch directly!
 
+### Introducing a new section
+
+* Make a feature branch on this repository or a fork
+* If it does not yet exist, create a new markdown file for your section and
+  create the content (if necessary, also create the necessary folder structure)
+* Make the necessary changes to the table of contents and/or
+  [navigation configuration](./mkdocs.yml)
+* `Optional but recommended`: Make a pull request, and set it to draft mode.
+  Find at least one reviewer and assign them to the PR. Use Slack or face to
+  face discussion to get confirmation.
+* Add a link to the PR (or branch if there is no PR (yet)) to the source document
+
 ### Make or request changes to an existing section
 
 * Edit the section that you want to work on in a fork or separate branch.
-* When done, create a pull request.
+* When done, create a pull request. If you are the 'owner' of the section, find
+  a reviewer and assign them. If not, assign the owner as the reviewer.
 
 You may also create an issue and assign it to the owner of the relevant section.
-
-### Introducing a new section
-
-* Make an issue that describes the work, assign to yourself
-* Make a feature branch on this repository or a fork
-* Create a new markdown file for your section and create the content
-* Create the necessary folder structure if necessary
-* Make the necessary changes to the tabe of contents and/or [navigation configuration](./mkdocs.yml)
-* When ready to be reviewed, create a pull request
 
 ## Building and deploying
 
