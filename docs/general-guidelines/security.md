@@ -1,6 +1,6 @@
 # Security
 
-## Protection against vulnerability exploitationties
+## Protection against vulnerability exploitation
 
 General guideline: vulnerability checks/scans should be applied regularly (on pushes, on release, while deployed) at code and/or binary levels
 
