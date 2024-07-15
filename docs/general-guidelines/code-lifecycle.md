@@ -241,69 +241,42 @@ one of the included services.
 ## Continuous integration
 
 -   Where?
-
--   GitLab
-
--   Docker builds -> deploy to GitLab (repo) docker registry
-
--   Docker compose (test stage tested on GitLab; performance benefit of loading of images from registry)
-
--   Building of GitHub projects on GitLab for full chain Maven -> Image build & deploy to registry
-
--   Pay attention to artifact size limits
-
--   GitHub actions
-
--   For application code
-
--   Can be used to trigger build on GitLab
-
--   (Theoretically) more portable than Travis
-
--   Travis
-
--   Guideline: transition to GitHub actions if feasible
+    -   GitLab
+        -   Docker builds -> deploy to GitLab (repo) docker registry
+        -   Docker compose (test stage tested on GitLab; performance benefit of loading of images from registry)
+        -   Building of GitHub projects on GitLab for full chain Maven -> Image build & deploy to registry
+        -   Pay attention to artifact size limits
+    -   GitHub actions
+        -   For application code
+        -   Can be used to trigger build on GitLab
+        -   (Theoretically) more portable than Travis
+    -   Travis
+        -   Guideline: transition to GitHub actions if feasible
+    -
 
 Recommended to have all the following stages implemented:
 
 Stages
 
 -   Linting / resource validation
-
--   Docker files
-
--   Shell scripts
-
--   JS
-
--   CSS
-
--   XML
-
--   Python??
-
+    -   Docker files
+    -   Shell scripts
+    -   JS
+    -   CSS
+    -   XML
+    -   Python??
 -   Compiling / building
-
 -   Testing
-
--   Application code: unit tests
-
--   Docker: build script test command (compose based)
-
--   Docker compose: control script test command
-
+    -   Application code: unit tests
+    -   Docker: build script test command (compose based)
+    -   Docker compose: control script test command
 -   Security check/scan
-
--   Docker (compose): snyk
-
+    -   Docker (compose): snyk
 -   Release
-
--   Application: deploy artifact to GitHub release
-
--   Docker: deploy multi-architecture image to repository
+    -   Application: deploy artifact to GitHub release
+    -   Docker: deploy multi-architecture image to repository
 
 Ignoring or skipping (failing) tests:
 
 -   During development
-
 -   In case of upstream issues that cannot be resolved
