@@ -1,4 +1,4 @@
-### Localisation / internationaliszation
+# Localisation / internationaliszation
 
 
 -   Application configuration
