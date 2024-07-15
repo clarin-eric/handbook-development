@@ -150,163 +150,89 @@ one of the included services.
 
 -   General guidelines on workflow(s)
 
--   Default choice: Git Flow
-
--   Stages (active development/out of development/deprecated)
-
--   Projects that go 'out of development' can have their **development branch dropped**; in this stage, only make hotfixes.
-
--   Hotfix should be in hotfix branch (not directly to main)
-
+    -   Default choice: Git Flow
+    -   Stages (active development/out of development/deprecated)
+        -   Projects that go ‘out of development’ can have their **development branch dropped**; in this stage, only make hotfixes.
+            -   Hotfix should be in hotfix branch (not directly to main)
 -   Branches
+    -   The main branch
+        -   \= Stable
+            -   Should have tests and checks in successful state (or warning, no fail)
+        -   Avoid direct commits to main branch
+            -   Use GH/GL repo config to protect main branch
+        -   Name: use ‘main’ for new projects - ok but not necessary to rename in existing projects
+            -   Configure your local git client to use ‘main’ as the default branch when initializing new repositories:
+                  git config --global init.defaultBranch main
+                ([source](https://github.blog/2020-07-27-highlights-from-git-2-28/#introducing-init-defaultbranch))
 
--   The main branch
-
--   = Stable
-
--   Should have tests and checks in successful state (or warning, no fail)
-
--   Avoid direct commits to main branch
-
--   Use GH/GL repo config to protect main branch
-
--   Name: use 'main' for new projects - ok but not necessary to rename in existing projects
-
--   Configure your local git client to use 'main' as the default branch when initializing new repositories:\
-    *git config --global init.defaultBranch main*\
-    ([source](https://github.blog/2020-07-27-highlights-from-git-2-28/#introducing-init-defaultbranch))
-
--   Development branch(es)
-
--   Name: ^dev(elop(ment)?)?$
-
--   "Permanent" development branch?
-
--   Keep ahead of main branch! With merge.
-
--   Alpha tags/release can be made from this branch
-
--   Feature branches
-
--   Naming
-
--   Good practice to include issue number(s) if applicable
-
--   Otherwise as descriptive (but short) as possible
-
--   Should branch off directly from the development branch. Do not 'stack'
-
--   Rebase and clean up before merging back into the targeted branch
-
--   Don't force push the feature branch unless it is a private one
-
--   Alpha tags/release can be made from this branch
-
--   Release branches
-
--   Name
-
--   release-x.y(.z)
-
--   Upon feature freeze
-
--   Version number in code base changes on this branch (not develop)
-
--   From here you may tag *x.y.z-betaN* (also alpha)
-
--   Bug fixes until ready for x.y.z release
-
--   Merge into main branch at time of x.y.z release, then tag *x.y.z* on main branch
-
+    -   Development branch(es)
+        -   Name: ^dev(elop(ment)?)?$
+        -   “Permanent” development branch?
+            -   Keep ahead of main branch! With merge.
+        -   Alpha tags/release can be made from this branch
+    -   Feature branches
+        -   Naming
+            -   Good practice to include issue number(s) if applicable
+            -   Otherwise as descriptive (but short) as possible
+        -   Should branch off directly from the development branch. Do not ‘stack’
+        -   Rebase and clean up before merging back into the targeted branch
+            -   Don’t force push the feature branch unless it is a private one
+        -   Alpha tags/release can be made from this branch
+    -   Release branches
+        -   Name
+            -   release-x.y(.z)
+        -   Upon feature freeze
+        -   Version number in code base changes on this branch (not develop)
+        -   From here you may tag x.y.z-betaN (also alpha)
+        -   Bug fixes until ready for x.y.z release
+        -   Merge into main branch at time of x.y.z release, then tag x.y.z on main branch
 -   Tags
-
--   Avoid deleting tags
-
--   Exception can be to try to avoid usage anywhere
-
--   Exception can be to immediately clean up after a slip-up
-
--   In case of image to be removed from container repo
-
--   Delete the image from the container repo but keep the tag, adding a description to the release
-
--   NEVER remove a tag if there has ever been a deployment based on that tag (whether testing, staging or production)
-
--   Re-tagging
-
--   Do not re-tag (use same tag name twice) UNLESS
-
--   In a private repository
-
--   Know for sure that it can not have been used anywhere
-
--   Never for stable (non alpha, beta or RC)
-
--   Examples of tag patterns for application (note: this repeats on the right hand side for docker images, see section X)
-
--   Towards release `x.y.z`, normally in this order
-
--   alpha release(s): `x.y.z-alphaN`
-
--   [feature freeze]
-
--   beta release(s): `x.y.z-betaN`
-
--   release candidates: `x.y.z-rcN`
-
--   final release: `x.y.z`
-
+    -   Avoid deleting tags
+        -   Exception can be to try to avoid usage anywhere
+        -   Exception can be to immediately clean up after a slip-up
+        -   In case of image to be removed from container repo
+            -   Delete the image from the container repo but keep the tag, adding a description to the release
+        -   NEVER remove a tag if there has ever been a deployment based on that tag (whether testing, staging or production)
+    -   Re-tagging
+        -   Do not re-tag (use same tag name twice) UNLESS
+            -   In a private repository
+            -   Know for sure that it can not have been used anywhere
+        -   Never for stable (non alpha, beta or RC)
+    -   Examples of tag patterns for application (note: this repeats on the right hand side for  docker images, see section X)
+        -   Towards release \`x.y.z\`, normally in this order
+            -   alpha release(s): \`x.y.z-alphaN\`
+            -   \[feature freeze\]
+            -   beta release(s): \`x.y.z-betaN\`
+            -   release candidates: \`x.y.z-rcN\`
+            -   final release: \`x.y.z\`
 -   Pull requests / merge requests (PRs)
-
--   Good practice to use PRs instead of merging directly in the client, especially if multiple people are actively working on a project
-
--   Make pull requests on feature branches (& release branches)
-
--   preferably pull requests are not made on permanent branches
-
--   note: if your branching strategy includes permanent branches other than the main branch (e.g. development), it probably fits to make release branch
-
--   Naming: PR name should describe the change and if applicable a reference to the issue #
-
--   in case of feature branches the name of the branch might give this information
-
--   beware of default behaviour of Git(Hub|Lab) to use last commit message as title
-
--   PR acceptance
-
--   Tests & checks should all pass
-
--   If overriding failed checks, document reason in a comment
-
--   Code reviews?
-
--   See below
-
--   Recommended to request review for PR if multiple active contributors
-
--   Branch specific requirements
-
+    -   Good practice to use PRs instead of merging directly in the client, especially if multiple people are actively working on a project
+    -   Make pull requests on feature branches (& release branches)
+        -   preferably pull requests are not made on permanent branches
+            -   note: if your branching strategy includes permanent branches other than the main branch (e.g. development), it probably fits to make release branch
+    -   Naming: PR name should describe the change and if applicable a reference to the issue #
+        -   in case of feature branches the name of the branch might give this information
+        -   beware of default behaviour of Git(Hub|Lab) to use last commit message as title
+    -   PR acceptance
+        -   Tests & checks should all pass
+            -   If overriding failed checks, document reason in a comment
+        -   Code reviews?
+            -   See below
+            -   Recommended to request review for PR if multiple active contributors
+        -   Branch specific requirements
 -   Forks
-
--   If the sausage making is very ugly, consider doing it in a fork
-
--   Examples:
-
--   work that is likely to require a lot of rewriting of git history
-
--   testing
-
--   experimenting with tags, CI pipeline
-
--   Branch in fork with same name as upstream can serve as feature branch - PR must clearly describe the feature
-
+    -   If the sausage making is very ugly, consider doing it in a fork
+        -   Examples:
+            -   work that is likely to require a lot of rewriting of git history
+            -   testing
+            -   experimenting with tags, CI pipeline
+        -   Branch in fork with same name as upstream can serve as feature branch - PR must clearly describe the feature
 -   Maintaining multiple versions
+    -   Keep a permanent branch for older versions that need to be maintained
+    -   If need be such a branch can be created at any stage
+    -   Avoid ‘orphaned’ tags
 
--   Keep a permanent branch for older versions that need to be maintained
 
--   If need be such a branch can be created at any stage
-
--   Avoid 'orphaned' tags
 
 ## Code reviews
 
