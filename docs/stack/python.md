@@ -95,7 +95,5 @@ def (param: List = []):
     pass
 ```
 
-## Read more
 
-### TODO Python vs Cython
 
