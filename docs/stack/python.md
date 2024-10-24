@@ -12,7 +12,7 @@ Automation of tasks can be conducted using Python, but we highly recommend using
 
 * 👉 MUST use latest Python supported by all other dependencies.
 * 👉 MUST NOT use your default Python distribution for development environment if your OS comes with one as it can brake system packages dependent on Python.
-* 👉 MUST NOT update your default OS Python.
+* 👉 MUST NOT override your default OS Python.
 * 👉 MUST NOT alter your default `python/python3` 
 * 👉 MUST use virtual environment manager. Recommended lightweight core [Venv](https://docs.python.org/3/library/venv.html) or [Anaconda](https://www.anaconda.com/).
 
@@ -25,7 +25,7 @@ Automation of tasks can be conducted using Python, but we highly recommend using
 * 👉 MUST strive for highest possible duck type hint converage [PEP544](https://peps.python.org/pep-0544/)
 * &emsp;(if framework documentation doesn't expose the protocols or uses `x: Any` you are excused)
 * 👉 MUST follow minimal docstring conventions [PEP257](https://peps.python.org/pep-0257/)
-* 👉 SHOULD use [Sphinx](https://sphinx-rtd-tutorial.readthedocs.io/en/latest/docstrings.html) docstring syntax. Any other well defined convention is acceptable, but Sphinx is preferred. Remember to maintain consistant conventions within self-contained packages.
+* 👉 SHOULD use [Sphinx](https://sphinx-rtd-tutorial.readthedocs.io/en/latest/docstrings.html) docstring syntax. Any other well-defined convention is acceptable, but Sphinx is preferred. Remember to maintain consistant conventions within self-contained packages.
 
 ## Frameworks & libraries
 
@@ -45,15 +45,17 @@ For `.xml` files processing SHOULD use [lxml](https://lxml.de/).
 
 ### Logging
 
-By default SHOULD use Python's core [logging](https://docs.python.org/3/library/logging.html) package. Django logging utilises core Python logging making it fully compatible.
+By default, `SHOULD` use Python's core [logging](https://docs.python.org/3/library/logging.html) package. Django logging utilises core Python logging making it fully compatible.
 
 ## Building and deployment
 
 ### Build
 Use `pip` as default package manage:
-* 👉 `MUST` Build wheels and install package from the wheel [PEP427](https://peps.python.org/pep-0427/) whenever possible. Instalations from `stdist` only as last resort.
-* 👉 On Alpine [package registry](https://pkgs.alpinelinux.org/packages) `MUST` prioritise over PyPi (don't install/build with `pip` if `apk` available). Read more about [using Alpine can make Python Docker builds 50x slower](https://pythonspeed.com/articles/alpine-docker-python/) and [platform tag for Linux distributions using musl (PEP 656)](https://peps.python.org/pep-0656/).
-* 👉 With depreciaciation of setuptools strive for [pyproject.toml](https://pip.pypa.io/en/stable/reference/build-system/pyproject-toml/) as default SCM with [Poetry](https://python-poetry.org/) backend. (as of 04.07.2023 some of the setuptools functionalities are still in Beta for `pytoml+poetry` SCM, in case of clashes fall back for legacy setup.py)
+* 👉 `MUST` build wheels and install package from the wheel [PEP427](https://peps.python.org/pep-0427/).
+* 👉 `MUST` use pytoml + [Poetry](https://python-poetry.org/docs/pyproject/) as SCM 
+* 👉 `MUST` distribute packages as wheels
+* 👉 `MUST` use CLARIN's [wheel builder](https://gitlab.com/CLARIN-ERIC/docker-alpine-wheeler) for building wheels
+
 
 ## Testing
 * 👉 Yes 🗿
