@@ -18,7 +18,7 @@ Automation of tasks can be conducted using Python, but we highly recommend using
 
 ### Code style
 
-* 👉 MUST enforce constistant design choices within each self-standing software/package
+* 👉 MUST enforce consistent design choices within each self-standing software/package
 * 👉 MUST follow [PEP8](https://peps.python.org/pep-0008/) guidelines on code styling
 * 👉 MUST strive for highest possible static type hint coverage  [PEP484](https://peps.python.org/pep-0484/)
 * &emsp;(if framework documentation doesn't expose the types or uses `x: Any` you are excused)
