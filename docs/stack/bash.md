@@ -20,7 +20,7 @@ with a shell script.
 
 Advantages:
 
-* Supported on most *-nixes and OSX.
+* Supported on POSIX compatible OSes.
 * Many developers and sysops are familiar with Bash:
    * and thus standardizing on bash lowers the learning curve.
    * and thus improving shareability.
@@ -34,19 +34,22 @@ Disadvantages:
 We leave it up to the developer / sysop to judge if and when a script becomes
 too long and too difficult to maintain. If implementing in Bash is not
 possible or considered not suitable it is possible to implement the task in
-a different language, preferably resulting an excutable
-binary.
+a different language, preferably resulting in an executable
+binary which runs out-of-the-box without the need to install a runtime 
+environment.
 
 ## Dependencies
 
 Scripts can make use of external dependencies to function properly. It is
 important to be aware of any missing dependencies before executing the
-scripts. Installing depencies automatically from a script can have an impact
+scripts. Installing dependencies automatically from a script can have an impact
 on other processes running in the same environment and thus should be
-avoided where possible.
+avoided where possible. The script should check for the availability of the 
+dependencies during runtime and inform the user on how to proceed in case some 
+dependency is missing.
 
 The use of subshells [^SUBSHELLS] is considered a good approach to isolate the
-effects of certain commands are operations.
+effects of certain commands and operations.
 
 * 👉 The script `MUST` not make any persistent changes to the environment where
   it is executed. I.e. install packages.
@@ -69,12 +72,12 @@ Some important highlights from this guide:
 * Always use .sh or .bash extension for shell scripts.
 * Always add comment header below shebang with summary of script functionality.
 * Line break before pipeline.
-* Quote variables as `"${foo}"` instead of `$foo` abd commands as `$(foo)`
+* Quote variables as `"${foo}"` instead of `$foo` and commands as `$(foo)`
   instead of `foo`.
 * Avoid `eval`.
-* `main` function for scripts longer than a few lines and/or other functions
-  and call it in the very end(i.e. last line) of the script, passing all
-  parameters: `main "$@"`.
+* Write a `main` function for scripts longer than a few lines and/or other 
+  functions and call it in the very end(i.e. last line) of the script, passing 
+  all parameters: `main "$@"`.
 * Calling scripts: use `bash script.sh` or `./script.sh` (not `sh script.sh`).
 
 Working directory assumptions:
@@ -105,7 +108,7 @@ as described in more detail in this [^STACKOVERFLOW] stackoverflow discussion.
   of the function, the support inputs and ouputs.
 * 👉 A bash script `SHOULD` always support the `-h`, `--help` parameters. When
   called with this argument the script gives a meaningful summary of its usage
-  and it's parameters.
+  and its parameters.
 
 ## Build tools & Continuous Integration
 
@@ -140,6 +143,26 @@ shell-check:
 ...
 ```
 
+For github actions try this:
+
+```
+name: Shell linting
+on:
+  push:
+  pull_request:
+
+jobs:
+  lint:
+    name: Lint shell
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Lint
+        run: ./build.sh --lint-shell
+...
+```
+
 ## Testing tools
 
 While advocating unit testing in general, we typically don't run unit tests for
@@ -148,7 +171,8 @@ we don't have experience with this tool.
 
 ## Static code analysis
 
-Script analysis is achieved by linting via the ShellCheck[^SHELLCHECK] utility.
+Script analysis is achieved by linting via the ShellCheck[^SHELLCHECK] utility,
+see section above "Build tools & Continuous Integration"
 
 ## Further Reading
 
