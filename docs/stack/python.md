@@ -70,7 +70,7 @@ List of recommended testing tools
 #### Unittests
 
 [Python's core unittest](https://docs.python.org/3/library/unittest.html)
-[Django's unittest extenstion](https://docs.djangoproject.com/en/4.2/topics/testing/overview/)
+[Django's unittest extension](https://docs.djangoproject.com/en/4.2/topics/testing/overview/)
 [Django-rest-framework unittest extension](https://www.django-rest-framework.org/api-guide/testing/)
 
 #### TODO selenium and integration testing
