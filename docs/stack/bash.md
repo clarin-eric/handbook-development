@@ -52,8 +52,8 @@ The use of subshells [^SUBSHELLS] is considered a good approach to isolate the
 effects of certain commands and operations.
 
 * 👉 The script `MUST` not make any persistent changes to the environment where
-  it is executed. I.e. install packages.
-* 👉 If the script depends on external tools, it is `SHOULD` check if these
+  it is executed. E.g. install packages.
+* 👉 If the script depends on external tools, it `SHOULD` check if these
   dependencies are available and abort execution of the script if any required
   dependency is missing.
 * 👉 If any required dependency is missing the script `SHOULD` print a warning
