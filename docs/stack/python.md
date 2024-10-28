@@ -2,7 +2,7 @@
 
 ## General
 
-[PEP](https://www.python.org/dev/peps/) is a set of Python community guidelines that is a baseline for our guidelines. If you adhere to explicit PEP you can't go wrong, however as it is possible for PEPs to clash with one other we explicitly state preferred standards further. Note, that in the following sections `Python` refers explicitly to `Python3`. `Python2` reached EOL on 1.01.2020. At CLARIN-ERIC we do not operate any legacy `Python2` software and no new developments will take place, therefor we ommit it in this chapter.
+[PEP](https://www.python.org/dev/peps/) is a set of Python community guidelines that is a baseline for our guidelines. If you adhere to explicit PEP you can't go wrong, however as it is possible for PEPs to clash with one other we explicitly state preferred standards further. Note, that in the following sections `Python` refers explicitly to `Python3`. `Python2` reached EOL on 1.01.2020. At CLARIN-ERIC we do not operate any legacy `Python2` software and no new developments will take place, therefor we omit it in this chapter.
 
 ### Scope of guidelines applicability
 
@@ -22,7 +22,7 @@ Automation of tasks can be conducted using Python, but we highly recommend using
 * 👉 MUST follow [PEP8](https://peps.python.org/pep-0008/) guidelines on code styling
 * 👉 MUST strive for highest possible static type hint coverage  [PEP484](https://peps.python.org/pep-0484/)
 * &emsp;(if framework documentation doesn't expose the types or uses `x: Any` you are excused)
-* 👉 MUST strive for highest possible duck type hint converage [PEP544](https://peps.python.org/pep-0544/)
+* 👉 MUST strive for highest possible duck type hint coverage [PEP544](https://peps.python.org/pep-0544/)
 * &emsp;(if framework documentation doesn't expose the protocols or uses `x: Any` you are excused)
 * 👉 MUST follow minimal docstring conventions [PEP257](https://peps.python.org/pep-0257/)
 * 👉 SHOULD use [Sphinx](https://sphinx-rtd-tutorial.readthedocs.io/en/latest/docstrings.html) docstring syntax. Any other well-defined convention is acceptable, but Sphinx is preferred. Remember to maintain consistant conventions within self-contained packages.
@@ -61,7 +61,7 @@ Use `pip` as default package manage:
 ## Testing
 
 * 👉 Yes 🗿
-* 👉 The more tests the better .
+* 👉 The more tests the better.
 
 ### Testing tools
 
