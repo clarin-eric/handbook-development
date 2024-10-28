@@ -4,23 +4,21 @@ This section presents guidelines for the writing and maintenance of docker
 images.
 
 ## General
-<!--
-[x] [TODO: discussion on application centered images vs use of environment image 
-    (e.g. tomcat) and deploy application @ compose level]
 
-[ ] [Reference to operational section(s) on Docker (compose)]
-[x] Docker version
-[x] Docker compose version
-[ ] Implementation of custom logic in compose project
-    [ ] subcommands
-    [ ] custom start/stop
-    [ ] backup and restore
-[ ] Developing for use outside CLARIN infra context
-    [ ] "bundle" control script submodule
-[x] Name for projects/repositories -> image [TODO: discuss!]
-    [x] Strategy for base images
-    [x] Strategy for application images
--->
+- [x] TODO: discussion on application centered images vs use of environment 
+image (e.g. tomcat) and deploy application @ compose level
+- [ ] Reference to operational section(s) on Docker (compose)
+- [x] Docker version
+- [x] Docker compose version
+- [ ] Implementation of custom logic in compose project
+  - [ ] subcommands
+  - [ ] custom start/stop
+  - [ ] backup and restore
+- [ ] Developing for use outside CLARIN infra context
+  - [ ] "bundle" control script submodule
+- [x] Name for projects/repositories -> image. TODO: discuss!
+   - [x] Strategy for base images
+   - [x] Strategy for application images
 
 Our applications and services are packed as container images, following the
 [open container initiative (OCI)](https://opencontainers.org/) specification,
@@ -121,83 +119,77 @@ CLARIN [deploy script](https://gitlab.com/CLARIN-ERIC/deploy-script).
 * 👉 These projects are started and stopped via the CLARIN [control script](https://gitlab.com/CLARIN-ERIC/control-script).
 
 ## Code style
-<!--
-[ ] Dockerfiles
-[ ] CLARIN docker best practices
-[ ] Use tag + digest for base image
-[ ] Differences from docker best practices
-[ ] https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
-[ ] https://docs.docker.com/get-started/09_image_best/
-[ ] Base images
-[ ] For each main process
-[ ] Supervisord setup
-[ ] Fluentd setup
-[ ] See Logging
-[ ] Logrotate setup
-[ ] Default healthcheck
-[ ] How to customise
-[ ] [Entrypoint]
-[ ] Supervisor base images
-[ ] Other cases
-[ ] [Initialisation logic]
-[ ] ‘Core’ application directory
-[ ] Choice of directory for stand-alone applications
-[ ] If the environment or other context (e.g. tomcat) provides a requirement or 
-[ ] guideline, follow that
-[ ] If the choice is arbitrary, recommended locations
-[ ] follow OS conventions (typically alpine)
-[ ] for binaries
-[ ] /usr/local/bin
-[ ] for application bundles??
-[ ] last WORKDIR in Dockerfile must be set to this directory
-[ ] Compose projects
-[ ] .env file/variables
 
-[ ] Overlays
-[ ] Use cases
-[ ] When not to use -> when variables can do the trick
-[ ] Custom scripts should hide complexity
-[ ] Volumes & networks
-[ ] Internal & external
--->
+- [ ] Dockerfiles
+- [ ] CLARIN docker best practices
+- [ ] Use tag + digest for base image
+- [ ] Differences from docker best practices
+- [ ] https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
+- [ ] https://docs.docker.com/get-started/09_image_best/
+- [ ] Base images
+- [ ] For each main process
+- [ ] Supervisord setup
+- [ ] Fluentd setup
+- [ ] See Logging
+- [ ] Logrotate setup
+- [ ] Default healthcheck
+- [ ] How to customise
+- [ ] Entrypoint
+- [ ] Supervisor base images
+- [ ] Other cases
+- [ ] Initialisation logic
+- [ ] ‘Core’ application directory
+- [ ] Choice of directory for stand-alone applications
+- [ ] If the environment or other context (e.g. tomcat) provides a requirement or 
+- [ ] guideline, follow that
+- [ ] If the choice is arbitrary, recommended locations
+- [ ] follow OS conventions (typically alpine)
+- [ ] for binaries
+- [ ] /usr/local/bin
+- [ ] for application bundles??
+- [ ] last WORKDIR in Dockerfile must be set to this directory
+- [ ] Compose projects
+- [ ] .env file/variables
+
+- [ ] Overlays
+- [ ] Use cases
+- [ ] When not to use -> when variables can do the trick
+- [ ] Custom scripts should hide complexity
+- [ ] Volumes & networks
+- [ ] Internal & external
 
 ## Frameworks
-<!--
-[ ] Build script
-[ ] https://gitlab.com/CLARIN-ERIC/build-script
-[ ] Testing
-[ ] images
-[ ] Build script --test argument  with docker-compose
-[ ] compose projects
-[ ] test with ??
-[ ] docker-compose
--->
+
+- [ ] Build script
+- [ ] https://gitlab.com/CLARIN-ERIC/build-script
+- [ ] Testing
+- [ ] images
+- [ ] Build script --test argument  with docker-compose
+- [ ] compose projects
+- [ ] test with ??
+- [ ] docker-compose
 
 ## Documentation
-<!--
-[ ] Image project
-[ ] README
-[ ] Reference base image
-[ ] List the important application and configuration locations (paths) inside the 
-[ ] image
-[ ] List the user name(s) defined and used in the image
--->
+
+- [ ] Image project
+- [ ] README
+- [ ] Reference base image
+- [ ] List the important application and configuration locations (paths) inside the 
+- [ ] image
+- [ ] List the user name(s) defined and used in the image
 
 ## Build tools & Continuous Integration
-<!--
-[ ] Describe our gitlab CI integration with hadolint
-[ ] Include examples
-[ ] Gitlab Docker repository
--->
+
+- [ ] Describe our gitlab CI integration with hadolint
+- [ ] Include examples
+- [ ] Gitlab Docker repository
 
 ## Testing tools
 
 ### Static code analysis
 
-<!--
-[ ] Linting with hadolint
-[ ] Security scanning
--->
+- [ ] Linting with hadolint
+- [ ] Security scanning
 
 ## Upstream proxies
 
