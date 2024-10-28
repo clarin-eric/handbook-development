@@ -6,14 +6,14 @@
 
 ### Scope of guidelines applicability
 
-Automation of tasks can be conducted using Python, but we highly recommend using Bash as a default scripting language. However, it may be beneficial to use Python in certain applications, e.g. educational content, data manipulation, data visualisation, etc., where the outcome is knowledge not software. We do not impose any explicit requirements and guidelines on Python for non-software code. It is up to the programmer to wage pros and cons of automation using Python in a given context, to be aware of target group and adjust programming practices to the context in which they are applied. Following these guidelines is a MUST only for software meant for deployment in production. 
+Automation of tasks can be conducted using Python, but we highly recommend using Bash as a default scripting language. However, it may be beneficial to use Python in certain applications, e.g. educational content, data manipulation, data visualisation, etc., where the outcome is knowledge not software. We do not impose any explicit requirements and guidelines on Python for non-software code. It is up to the programmer to wage pros and cons of automation using Python in a given context, to be aware of target group and adjust programming practices to the context in which they are applied. Following these guidelines is a MUST only for software meant for deployment in production.
 
 ### Environment
 
 * 👉 MUST use latest Python supported by all other dependencies.
 * 👉 MUST NOT use your default Python distribution for development environment if your OS comes with one as it can brake system packages dependent on Python.
 * 👉 MUST NOT override your default OS Python.
-* 👉 MUST NOT alter your default `python/python3` 
+* 👉 MUST NOT alter your default `python/python3`
 * 👉 MUST use virtual environment manager. Recommended lightweight core [Venv](https://docs.python.org/3/library/venv.html) or [Anaconda](https://www.anaconda.com/).
 
 ### Code style
@@ -37,7 +37,7 @@ We currently use [Django](https://docs.djangoproject.com/) for MVC apps. Always 
 
 ### Django REST framework
 
-We currently use [Django-rest-framework](https://www.django-rest-framework.org/) for REST API implementation. Other non-Django solutions like Flask are also fine, but we have no experience in working with any of them. Developers are free to explore other options. 
+We currently use [Django-rest-framework](https://www.django-rest-framework.org/) for REST API implementation. Other non-Django solutions like Flask are also fine, but we have no experience in working with any of them. Developers are free to explore other options.
 
 ### XML processing
 
@@ -50,14 +50,16 @@ By default, `SHOULD` use Python's core [logging](https://docs.python.org/3/libra
 ## Building and deployment
 
 ### Build
+
 Use `pip` as default package manage:
+
 * 👉 `MUST` build wheels and install package from the wheel [PEP427](https://peps.python.org/pep-0427/).
-* 👉 `MUST` use pytoml + [Poetry](https://python-poetry.org/docs/pyproject/) as SCM 
+* 👉 `MUST` use pytoml + [Poetry](https://python-poetry.org/docs/pyproject/) as SCM
 * 👉 `MUST` distribute packages as wheels
 * 👉 `MUST` use CLARIN's [wheel builder](https://gitlab.com/CLARIN-ERIC/docker-alpine-wheeler) for building wheels
 
-
 ## Testing
+
 * 👉 Yes 🗿
 * 👉 The more tests the better .
 
@@ -79,8 +81,8 @@ List of recommended testing tools
 
 ```Python
 """
-Default parameter value is evaluated on function definition, 
-each call to function mutating the parameter will mutate the default value. 
+Default parameter value is evaluated on function definition,
+each call to function mutating the parameter will mutate the default value.
 
 Read more: https://docs.python-guide.org/writing/gotchas/.
 """
@@ -94,6 +96,3 @@ def (param: List = None):
 def (param: List = []):
     pass
 ```
-
-
-
