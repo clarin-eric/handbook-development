@@ -2,30 +2,30 @@
 
 ## General
 
--   Java versions
-    -   Recommended version -> aligned with production. LTS?
-        -   https://www.oracle.com/java/technologies/java-se-support-roadmap.html
-    -   Vendor(s)
-        -   openjdk \[Has to be supported by alpine, can change in the future\]
+- Java versions
+   - Recommended version -> aligned with production. LTS?
+      - <https://www.oracle.com/java/technologies/java-se-support-roadmap.html>
+   - Vendor(s)
+      - openjdk \[Has to be supported by alpine, can change in the future\]
 
 ## Code style
 
--   Formatting
-    -   Following the [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html)
-    -   Any deviations??
--   (Anti-)patterns
-    -   TODO (requires reference & motivation) \[Guideline\]
-        -   Exception handling
-            -   In relation to closeable objects
-        -   Use of interfaces
-        -   Re-assigning variables (i.e. not final)
-        -   Mutable collections
-        -   Home brewing common but error prone algorithms
-            -   instead use library, typically guava
-            -   examples: parsing (csv), string manipulations, IO pipelines, ...
-        -   ...
--   Design considerations for applications and services
-    -   OOP principles
+- Formatting
+   - Following the [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html)
+   - Any deviations??
+- (Anti-)patterns
+   - TODO (requires reference & motivation) \[Guideline\]
+      - Exception handling
+         - In relation to closeable objects
+      - Use of interfaces
+      - Re-assigning variables (i.e. not final)
+      - Mutable collections
+      - Home brewing common but error prone algorithms
+         - instead use library, typically guava
+         - examples: parsing (csv), string manipulations, IO pipelines, ...
+      - ...
+- Design considerations for applications and services
+   - OOP principles
 
 ## Frameworks & libraries
 
@@ -35,31 +35,31 @@
 
 ## Documentation
 
--   Javadoc
-    -   \[Which guideline?\]
-    -   Publication
--   What to put in README
-    -   Java version
-    -   Build instructions
+- Javadoc
+   - \[Which guideline?\]
+   - Publication
+- What to put in README
+   - Java version
+   - Build instructions
 
 ## Build tools & Continuous Integration
 
--   Maven
-    -   Project structure
-    -   Versioning
-    -   Deploying to repository
-        -   \[Where to publish\]
--   Gradle
-    -   Don’t use it \[Guideline\]
--   Ant
-    -   Definitely don’t use it \[Guideline\]
-    -
+- Maven
+   - Project structure
+   - Versioning
+   - Deploying to repository
+      - \[Where to publish\]
+- Gradle
+   - Don’t use it \[Guideline\]
+- Ant
+   - Definitely don’t use it \[Guideline\]
+   -
 
 ### Static code analysis
 
--   Maven plugins
-    -   Code coverage
-    -   Static code analysis
+- Maven plugins
+   - Code coverage
+   - Static code analysis
 
 ## Further reading
 
