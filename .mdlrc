@@ -1,1 +1,3 @@
-rules "~MD013", "~MD036"
+git_recurse true
+rules "~MD002", "~MD013", "~MD036"
+style ".mdl.rb"
