@@ -49,3 +49,6 @@ nav:
     - 'Docker': stack/docker.md
     - 'Python': stack/python.md
     - 'Javascript': stack/javascript.md
+  - 'Interoperability and portability':
+    - 'Authentication mechanisms': interoperability-and-portability/authentication-mechanisms.md
+    - 'Localisation and internationaliszation': interoperability-and-portability/localisation.md

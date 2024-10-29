@@ -1,2 +1,0 @@
-git_recurse true
-rules "~MD002", "~MD013", "~MD036"
