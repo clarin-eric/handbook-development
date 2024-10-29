@@ -8,7 +8,113 @@ Project statuses
 - Deprecated - deployed
 - Deprecated - undeployed
 
-<table width="538" cellpadding="7" cellspacing="0" style="page-break-before: auto; page-break-after: auto"><colgroup><col width="48"> <col width="93"> <col width="86"> <col width="66"> <col width="173"></colgroup><tbody><tr valign="top"><td width="48" bgcolor="#c9daf8" style="background: #c9daf8; border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="page-break-inside: auto; orphans: 0; widows: 0; border: none; padding: 0in; background: transparent; page-break-after: auto">Label</p></td><td width="93" bgcolor="#c9daf8" style="background: #c9daf8; border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="page-break-inside: auto; orphans: 0; widows: 0; border: none; padding: 0in; background: transparent; page-break-after: auto">Development</p></td><td width="86" bgcolor="#c9daf8" style="background: #c9daf8; border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="page-break-inside: auto; orphans: 0; widows: 0; border: none; padding: 0in; background: transparent; page-break-after: auto">Maintenance</p></td><td width="66" bgcolor="#c9daf8" style="background: #c9daf8; border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="orphans: 0; widows: 0">Deployed</p></td><td width="173" bgcolor="#c9daf8" style="background: #c9daf8; border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="orphans: 0; widows: 0">Notes</p></td></tr><tr valign="top"><td width="48" height="34" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="orphans: 0; widows: 0">A</p></td><td width="93" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="page-break-inside: auto; orphans: 0; widows: 0; border: none; padding: 0in; background: transparent; page-break-after: auto"><b>+</b></p></td><td width="86" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="page-break-inside: auto; orphans: 0; widows: 0; border: none; padding: 0in; background: transparent; page-break-after: auto"><b>+</b></p></td><td width="66" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="orphans: 0; widows: 0">-</p></td><td width="173" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="orphans: 0; widows: 0">Prototyping to first RC</p></td></tr><tr valign="top"><td width="48" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="orphans: 0; widows: 0">B</p></td><td width="93" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="page-break-inside: auto; orphans: 0; widows: 0; border: none; padding: 0in; background: transparent; page-break-after: auto"><b>+</b></p></td><td width="86" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="page-break-inside: auto; orphans: 0; widows: 0; border: none; padding: 0in; background: transparent; page-break-after: auto"><b>+</b></p></td><td width="66" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="orphans: 0; widows: 0"><b>+</b></p></td><td width="173" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="orphans: 0; widows: 0; margin-bottom: 0in">Matur(ing), in use</p><p align="left" style="orphans: 0; widows: 0">At least one stable release</p></td></tr><tr valign="top"><td width="48" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="orphans: 0; widows: 0">C</p></td><td width="93" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="page-break-inside: auto; orphans: 0; widows: 0; border: none; padding: 0in; background: transparent; page-break-after: auto">-</p></td><td width="86" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="page-break-inside: auto; orphans: 0; widows: 0; border: none; padding: 0in; background: transparent; page-break-after: auto"><b>+</b></p></td><td width="66" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="orphans: 0; widows: 0"><b>+</b></p></td><td width="173" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="orphans: 0; widows: 0">Stable, feature frozen</p></td></tr><tr valign="top"><td width="48" bgcolor="#ff9900" style="background: #ff9900; border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="orphans: 0; widows: 0">D</p></td><td width="93" bgcolor="#ff9900" style="background: #ff9900; border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="page-break-inside: auto; orphans: 0; widows: 0; border: none; padding: 0in; background: transparent; page-break-after: auto">-</p></td><td width="86" bgcolor="#ff9900" style="background: #ff9900; border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="page-break-inside: auto; orphans: 0; widows: 0; border: none; padding: 0in; background: transparent; page-break-after: auto">-</p></td><td width="66" bgcolor="#ff9900" style="background: #ff9900; border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="orphans: 0; widows: 0"><b>+</b></p></td><td width="173" bgcolor="#ff9900" style="background: #ff9900; border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="page-break-inside: auto; orphans: 0; widows: 0; border: none; padding: 0in; background: transparent; page-break-after: auto">Abandoned, in use</p></td></tr><tr valign="top"><td width="48" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="orphans: 0; widows: 0">E</p></td><td width="93" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="orphans: 0; widows: 0">-</p></td><td width="86" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="orphans: 0; widows: 0">-</p></td><td width="66" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="orphans: 0; widows: 0">-</p></td><td width="173" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="orphans: 0; widows: 0">Dead</p></td></tr></tbody></table>
+<table>
+  <tbody>
+    <tr>
+      <th>
+        <p>Label</p>
+      </th>
+      <th>
+        <p>Development</p>
+      </th>
+      <th>
+        <p>Maintenance</p>
+      </th>
+      <th>
+        <p>Deployed</p>
+      </th>
+      <th>
+        <p>Notes</p>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <p>A</p>
+      </td>
+      <td>
+        <p><strong>+</strong></p>
+      </td>
+      <td>
+        <p><strong>+</strong></p>
+      </td>
+      <td>
+        <p>-</p>
+      </td>
+      <td>
+        <p>Prototyping to first RC</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p>B</p>
+      </td>
+      <td>
+        <p><strong>+</strong></p>
+      </td>
+      <td>
+        <p><strong>+</strong></p>
+      </td>
+      <td>
+        <p><strong>+</strong></p>
+      </td>
+      <td>
+        <p>Matur(ing), in use</p>
+        <p>At least one stable release</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p>C</p>
+      </td>
+      <td>
+        <p>-</p>
+      </td>
+      <td>
+        <p><strong>+</strong></p>
+      </td>
+      <td>
+        <p><strong>+</strong></p>
+      </td>
+      <td>
+        <p>Stable, feature frozen</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p>D</p>
+      </td>
+      <td>
+        <p>-</p>
+      </td>
+      <td>
+        <p>-</p>
+      </td>
+      <td>
+        <p><strong>+</strong></p>
+      </td>
+      <td>
+        <p>Abandoned, in use</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p>E</p>
+      </td>
+      <td>
+        <p>-</p>
+      </td>
+      <td>
+        <p>-</p>
+      </td>
+      <td>
+        <p>-</p>
+      </td>
+      <td>
+        <p>Dead</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 Definitions
 
