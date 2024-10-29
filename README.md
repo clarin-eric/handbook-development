@@ -1,6 +1,6 @@
-**Read the docs at [clarin-eric.github.io/handbook-development](https://clarin-eric.github.io/handbook-development/)**
-
 # Sources for the CLARIN ERIC Software Development Guidelines
+
+**Read the docs at [clarin-eric.github.io/handbook-development](https://clarin-eric.github.io/handbook-development/)**
 
 [![Publication to GitHub Pages](https://github.com/clarin-eric/handbook-development/actions/workflows/publish.yml/badge.svg)](https://github.com/clarin-eric/handbook-development/actions/workflows/publish.yml)
 
