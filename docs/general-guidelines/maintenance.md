@@ -131,78 +131,78 @@ Definitions
 
 <table>
 <tbody>
-	<tr>
-		<th>
-			<p>Status</p>
-		</th>
-		<th>&nbsp;</th>
-		<th>
-			<p>Project examples</p>
-		</th>
-	</tr>
-	<tr>
-		<td>
-			<p>A</p>
-		</td>
-		<td>
-			<p>Prototyping - first RC</p>
-		</td>
-		<td>
-			<p>VCR JS widget</p>
-			<p>VLO 5.0</p>
-			<p>DOG</p>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<p>B</p>
-		</td>
-		<td>
-			<p>Matur(ing), in use</p>
-		</td>
-		<td>
-			<p>VLO</p>
-			<p>VCR</p>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<p>C</p>
-		</td>
-		<td>
-			<p>Stable, feature frozen</p>
-		</td>
-		<td>
-			<p>Switchboard</p>
-			<p>Component Registry</p>
-			<p>Centre Registry</p>
-			<p>OAI-PMH Harvester, viewer</p>
-			<p>RASA</p>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<p>D</p>
-		</td>
-		<td>
-			<p>Abandoned, in use</p>
-		</td>
-		<td>
-			<p><a href="https://github.com/clarin-eric/SAML-metadata-checker/">SAML-metadata-checker</a></p>
-			<p>earlier: FCS?</p>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<p>E</p>
-		</td>
-		<td>
-			<p>Dead</p>
-		</td>
-		<td>
-			<p><a href="https://github.com/clarin-eric/clarin-horizon_drupal_theme">clarin-horizon_drupal_theme</a></p>
-		</td>
-	</tr>
+  <tr>
+    <th>
+      <p>Status</p>
+    </th>
+    <th>&nbsp;</th>
+    <th>
+      <p>Project examples</p>
+    </th>
+  </tr>
+  <tr>
+    <td>
+      <p>A</p>
+    </td>
+    <td>
+      <p>Prototyping - first RC</p>
+    </td>
+    <td>
+      <p>VCR JS widget</p>
+      <p>VLO 5.0</p>
+      <p>DOG</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>B</p>
+    </td>
+    <td>
+      <p>Matur(ing), in use</p>
+    </td>
+    <td>
+      <p>VLO</p>
+      <p>VCR</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>C</p>
+    </td>
+    <td>
+      <p>Stable, feature frozen</p>
+    </td>
+    <td>
+      <p>Switchboard</p>
+      <p>Component Registry</p>
+      <p>Centre Registry</p>
+      <p>OAI-PMH Harvester, viewer</p>
+      <p>RASA</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>D</p>
+    </td>
+    <td>
+      <p>Abandoned, in use</p>
+    </td>
+    <td>
+      <p><a href="https://github.com/clarin-eric/SAML-metadata-checker/">SAML-metadata-checker</a></p>
+      <p>earlier: FCS?</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>E</p>
+    </td>
+    <td>
+      <p>Dead</p>
+    </td>
+    <td>
+      <p><a href="https://github.com/clarin-eric/clarin-horizon_drupal_theme">clarin-horizon_drupal_theme</a></p>
+    </td>
+  </tr>
 </tbody>
 </table>
 
