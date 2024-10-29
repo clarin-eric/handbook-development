@@ -11,7 +11,7 @@ Bash [^BASH] if possible.
 * 👉 Any shell script `SHOULD` always be written in bash, using the following
   shebang:
 
-```
+```bash
 #!/usr/bin/env bash
 ```
 
@@ -35,7 +35,7 @@ We leave it up to the developer / sysop to judge if and when a script becomes
 too long and too difficult to maintain. If implementing in Bash is not
 possible or considered not suitable it is possible to implement the task in
 a different language, preferably resulting in an executable
-binary which runs out-of-the-box without the need to install a runtime 
+binary which runs out-of-the-box without the need to install a runtime
 environment.
 
 ## Dependencies
@@ -44,8 +44,8 @@ Scripts can make use of external dependencies to function properly. It is
 important to be aware of any missing dependencies before executing the
 scripts. Installing dependencies automatically from a script can have an impact
 on other processes running in the same environment and thus should be
-avoided where possible. The script should check for the availability of the 
-dependencies during runtime and inform the user on how to proceed in case some 
+avoided where possible. The script should check for the availability of the
+dependencies during runtime and inform the user on how to proceed in case some
 dependency is missing.
 
 The use of subshells [^SUBSHELLS] is considered a good approach to isolate the
@@ -75,8 +75,8 @@ Some important highlights from this guide:
 * Quote variables as `"${foo}"` instead of `$foo` and commands as `$(foo)`
   instead of `foo`.
 * Avoid `eval`.
-* Write a `main` function for scripts longer than a few lines and/or other 
-  functions and call it in the very end(i.e. last line) of the script, passing 
+* Write a `main` function for scripts longer than a few lines and/or other
+  functions and call it in the very end(i.e. last line) of the script, passing
   all parameters: `main "$@"`.
 * Calling scripts: use `bash script.sh` or `./script.sh` (not `sh script.sh`).
 
@@ -94,7 +94,7 @@ Checking if a variable is set:
 
 * Just testing `-z ${var}` doesn’t fail for the empty string `""`. Instead use:
 
-```
+```bash
 if [ -z ${var+x} ]; then echo "var is unset"; else echo "var is set to '$var'"; fi
 ```
 
@@ -121,7 +121,7 @@ enabled on gitlab.com [^GITLAB] as follows:
 
 Example:
 
-```
+```yaml
 variables:
     GIT_SUBMODULE_STRATEGY: recursive
     DOCKER_DRIVER: overlay2
@@ -145,7 +145,7 @@ shell-check:
 
 For github actions try this:
 
-```
+```yaml
 name: Shell linting
 on:
   push:

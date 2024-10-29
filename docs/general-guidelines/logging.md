@@ -1,42 +1,44 @@
--   General
-    -   Logging best practices???
--   Log levels
-    -   What goes at what level
-        -   Log levels in different ecosystems
--   Log content
-    -   Important things & events to log
-        -   Tag
-    -   Always include context (ideally provided by logging framework); i.e. line number, class & method, relevant exception etc
-    -   Processability (consider grep, parsing, use in dashboards)
-    -   Content to avoid in logs
-        -   Secrets
-        -   (Potentially) personal information at >= INFO level
-            -   (user)names, IP addresses, e-mail, address, etc
-            -   CLARIN policy/statement (re GDPR)
-        -   Long content (can frameworks help you - formatting options)
--   Log frameworks
-    -   See language specific suggestions in section above
--   Prepare for log aggregation: fluent
-    -   log parsing
-        -   Parse at the 'source' (i.e. local fluent config in image)
-        -   Conventions / vocabulary for field names (with types)
-            -   Full message, timestamp, log level, context, ...
-        -   Required fields
-            -   Include full/original/unparsed message
-        -   Recommended fields
-            -   Timestamp
--   Log configurations
-    -   Main log level(s) should be configurable
-        -   At container level for main process(es) via environment variable(s)
-    -   Other logging configuration
-        -   Nice if it can be overridden
--   Special cases
-    -   Timing
-        -   Include unit
-    -   Process start/stop
-    -   Progress
-    -   Heartbeat
-    -   ...
--   Smells / bad practices
-    -   Extensive logging for debugging (especially if not cleaned up)
-    -   Expensive calculations in log messages (especially if not lazy)
+# Logging
+
+- General
+   - Logging best practices???
+- Log levels
+   - What goes at what level
+      - Log levels in different ecosystems
+- Log content
+   - Important things & events to log
+      - Tag
+   - Always include context (ideally provided by logging framework); i.e. line number, class & method, relevant exception etc
+   - Processability (consider grep, parsing, use in dashboards)
+   - Content to avoid in logs
+      - Secrets
+      - (Potentially) personal information at >= INFO level
+         - (user)names, IP addresses, e-mail, address, etc
+         - CLARIN policy/statement (re GDPR)
+      - Long content (can frameworks help you - formatting options)
+- Log frameworks
+   - See language specific suggestions in section above
+- Prepare for log aggregation: fluent
+   - log parsing
+      - Parse at the 'source' (i.e. local fluent config in image)
+      - Conventions / vocabulary for field names (with types)
+         - Full message, timestamp, log level, context, ...
+      - Required fields
+         - Include full/original/unparsed message
+      - Recommended fields
+         - Timestamp
+- Log configurations
+   - Main log level(s) should be configurable
+      - At container level for main process(es) via environment variable(s)
+   - Other logging configuration
+      - Nice if it can be overridden
+- Special cases
+   - Timing
+      - Include unit
+   - Process start/stop
+   - Progress
+   - Heartbeat
+   - ...
+- Smells / bad practices
+   - Extensive logging for debugging (especially if not cleaned up)
+   - Expensive calculations in log messages (especially if not lazy)
