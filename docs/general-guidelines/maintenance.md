@@ -129,7 +129,82 @@ Definitions
       - Dependency / base image updates
       - Implement required adaptations to new or changed context (OS, runtime, servlet container, ...)
 
-<table width="624" cellpadding="7" cellspacing="0" style="page-break-before: auto; page-break-after: auto"><colgroup><col width="41"> <col width="150"> <col width="389"></colgroup><tbody><tr valign="top"><td width="41" bgcolor="#cfe2f3" style="background: #cfe2f3; border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="page-break-inside: auto; orphans: 0; widows: 0; border: none; padding: 0in; background: transparent; page-break-after: auto">Status</p></td><td width="150" bgcolor="#cfe2f3" style="background: #cfe2f3; border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="page-break-inside: auto; orphans: 0; widows: 0; border: none; padding: 0in; background: transparent; page-break-after: auto"><br></p></td><td width="389" bgcolor="#cfe2f3" style="background: #cfe2f3; border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="page-break-inside: auto; orphans: 0; widows: 0; border: none; padding: 0in; background: transparent; page-break-after: auto">Project examples</p></td></tr><tr valign="top"><td width="41" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="page-break-inside: auto; orphans: 0; widows: 0; border: none; padding: 0in; background: transparent; page-break-after: auto">A</p></td><td width="150" style="border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="orphans: 0; widows: 0">Prototyping - first RC</p></td><td width="389" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="page-break-inside: auto; orphans: 0; widows: 0; margin-bottom: 0in; border: none; padding: 0in; background: transparent; page-break-after: auto">VCR JS widget</p><p align="left" style="page-break-inside: auto; orphans: 0; widows: 0; margin-bottom: 0in; border: none; padding: 0in; background: transparent; page-break-after: auto">VLO 5.0</p><p align="left" style="orphans: 0; widows: 0">DOG</p></td></tr><tr valign="top"><td width="41" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="page-break-inside: auto; orphans: 0; widows: 0; border: none; padding: 0in; background: transparent; page-break-after: auto">B</p></td><td width="150" style="border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="orphans: 0; widows: 0">Matur(ing), in use</p></td><td width="389" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="page-break-inside: auto; orphans: 0; widows: 0; margin-bottom: 0in; border: none; padding: 0in; background: transparent; page-break-after: auto">VLO</p><p align="left" style="page-break-inside: auto; orphans: 0; widows: 0; border: none; padding: 0in; background: transparent; page-break-after: auto">VCR</p></td></tr><tr valign="top"><td width="41" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="page-break-inside: auto; orphans: 0; widows: 0; border: none; padding: 0in; background: transparent; page-break-after: auto">C</p></td><td width="150" style="border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="orphans: 0; widows: 0">Stable, feature frozen</p></td><td width="389" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="page-break-inside: auto; orphans: 0; widows: 0; margin-bottom: 0in; border: none; padding: 0in; background: transparent; page-break-after: auto">Switchboard</p><p align="left" style="page-break-inside: auto; orphans: 0; widows: 0; margin-bottom: 0in; border: none; padding: 0in; background: transparent; page-break-after: auto">Component Registry</p><p align="left" style="page-break-inside: auto; orphans: 0; widows: 0; margin-bottom: 0in; border: none; padding: 0in; background: transparent; page-break-after: auto">Centre Registry</p><p align="left" style="page-break-inside: auto; orphans: 0; widows: 0; margin-bottom: 0in; border: none; padding: 0in; background: transparent; page-break-after: auto">OAI-PMH Harvester, viewer</p><p align="left" style="page-break-inside: auto; orphans: 0; widows: 0; border: none; padding: 0in; background: transparent; page-break-after: auto">RASA</p></td></tr><tr valign="top"><td width="41" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="page-break-inside: auto; orphans: 0; widows: 0; border: none; padding: 0in; background: transparent; page-break-after: auto">D</p></td><td width="150" style="border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="orphans: 0; widows: 0">Abandoned, in use</p></td><td width="389" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="page-break-inside: auto; orphans: 0; widows: 0; margin-bottom: 0in; border: none; padding: 0in; background: transparent; page-break-after: auto"><a href="https://github.com/clarin-eric/SAML-metadata-checker/">SAML-metadata-checker</a></p><p align="left" style="page-break-inside: auto; orphans: 0; widows: 0; border: none; padding: 0in; background: transparent; page-break-after: auto">earlier: FCS?</p></td></tr><tr valign="top"><td width="41" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="page-break-inside: auto; orphans: 0; widows: 0; border: none; padding: 0in; background: transparent; page-break-after: auto">E</p></td><td width="150" style="border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="orphans: 0; widows: 0">Dead</p></td><td width="389" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p align="left" style="page-break-inside: auto; orphans: 0; widows: 0; border: none; padding: 0in; background: transparent; page-break-after: auto"><a href="https://github.com/clarin-eric/clarin-horizon_drupal_theme">clarin-horizon_drupal_theme</a></p></td></tr></tbody></table>
+<table>
+<tbody>
+	<tr>
+		<th>
+			<p>Status</p>
+		</th>
+		<th>&nbsp;</th>
+		<th>
+			<p>Project examples</p>
+		</th>
+	</tr>
+	<tr>
+		<td>
+			<p>A</p>
+		</td>
+		<td>
+			<p>Prototyping - first RC</p>
+		</td>
+		<td>
+			<p>VCR JS widget</p>
+			<p>VLO 5.0</p>
+			<p>DOG</p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<p>B</p>
+		</td>
+		<td>
+			<p>Matur(ing), in use</p>
+		</td>
+		<td>
+			<p>VLO</p>
+			<p>VCR</p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<p>C</p>
+		</td>
+		<td>
+			<p>Stable, feature frozen</p>
+		</td>
+		<td>
+			<p>Switchboard</p>
+			<p>Component Registry</p>
+			<p>Centre Registry</p>
+			<p>OAI-PMH Harvester, viewer</p>
+			<p>RASA</p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<p>D</p>
+		</td>
+		<td>
+			<p>Abandoned, in use</p>
+		</td>
+		<td>
+			<p><a href="https://github.com/clarin-eric/SAML-metadata-checker/">SAML-metadata-checker</a></p>
+			<p>earlier: FCS?</p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<p>E</p>
+		</td>
+		<td>
+			<p>Dead</p>
+		</td>
+		<td>
+			<p><a href="https://github.com/clarin-eric/clarin-horizon_drupal_theme">clarin-horizon_drupal_theme</a></p>
+		</td>
+	</tr>
+</tbody>
+</table>
 
 \[TODO: guidelines matrix for status X aspect\]
 
