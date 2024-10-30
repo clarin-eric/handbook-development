@@ -2,9 +2,9 @@ name: Test build site
 on:
   pull_request:
   workflow_run:
-    workflows: ["lint"]
+    workflows: [lint]
     types: 
-      - [completed]
+      - completed
 
 jobs:
   test:
