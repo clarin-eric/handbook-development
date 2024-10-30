@@ -3,8 +3,7 @@ on:
   pull_request:
   workflow_run:
     workflows: [lint]
-    types: 
-      - completed
+    types: [completed]
 
 jobs:
   test:
