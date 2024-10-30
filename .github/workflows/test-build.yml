@@ -4,7 +4,7 @@ on:
   workflow_run:
     workflows: ["lint"]
     types: 
-      - completed
+      - [completed]
 
 jobs:
   test:
