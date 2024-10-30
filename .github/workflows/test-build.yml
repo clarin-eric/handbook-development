@@ -2,7 +2,7 @@ name: Test build site
 on:
   pull_request:
   workflow_run:
-    workflows: [lint]
+    workflows: [ Lint-markdown ]
     types: [completed]
 
 jobs:
