@@ -1,0 +1,1322 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="CLARIN ERIC developers">
+      
+      
+        <link rel="canonical" href="https://clarin-eric.github.io/handbook-development/general-guidelines/code-lifecycle/">
+      
+      
+        <link rel="prev" href="../testing/">
+      
+      
+        <link rel="next" href="../security/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
+    
+    
+      
+        <title>Code lifecycle - CLARIN ERIC Software Development Handbook</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.558e4712.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/clarin-colours.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#code-lifecycle" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CLARIN ERIC Software Development Handbook" class="md-header__button md-logo" aria-label="CLARIN ERIC Software Development Handbook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CLARIN ERIC Software Development Handbook
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Code lifecycle
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/clarin-eric/handbook-development" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CLARIN ERIC Software Development Handbook" class="md-nav__button md-logo" aria-label="CLARIN ERIC Software Development Handbook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    CLARIN ERIC Software Development Handbook
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/clarin-eric/handbook-development" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="true">
+          General guidelines
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="General guidelines" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          General guidelines
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documentation/" class="md-nav__link">
+        Documentation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logging/" class="md-nav__link">
+        Logging
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/" class="md-nav__link">
+        API development
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing/" class="md-nav__link">
+        Testing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Code lifecycle
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Code lifecycle
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#version-numbering" class="md-nav__link">
+    Version numbering
+  </a>
+  
+    <nav class="md-nav" aria-label="Version numbering">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scope" class="md-nav__link">
+    Scope
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#increasing-version-numbers" class="md-nav__link">
+    Increasing version numbers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#releasing" class="md-nav__link">
+    Releasing
+  </a>
+  
+    <nav class="md-nav" aria-label="Releasing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lifecycle-stages" class="md-nav__link">
+    Lifecycle stages
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hotfixes" class="md-nav__link">
+    Hotfixes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publication" class="md-nav__link">
+    Publication
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-image-versioning" class="md-nav__link">
+    Docker image versioning
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-compose-projects" class="md-nav__link">
+    Docker compose projects
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#branching-merging-strategies" class="md-nav__link">
+    Branching, merging strategies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-reviews" class="md-nav__link">
+    Code reviews
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#continuous-integration" class="md-nav__link">
+    Continuous integration
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/" class="md-nav__link">
+        Security
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../maintenance/" class="md-nav__link">
+        Maintenance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-licencing/" class="md-nav__link">
+        Code licencing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../privacy-data-protection/" class="md-nav__link">
+        Privacy & data protection
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" tabindex="0" aria-expanded="false">
+          Stacks
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Stacks" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Stacks
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stack/java/" class="md-nav__link">
+        Java
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stack/bash/" class="md-nav__link">
+        Bash
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stack/docker/" class="md-nav__link">
+        Docker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stack/python/" class="md-nav__link">
+        Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stack/javascript/" class="md-nav__link">
+        Javascript
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" tabindex="0" aria-expanded="false">
+          Interoperability and portability
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Interoperability and portability" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Interoperability and portability
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interoperability-and-portability/authentication-mechanisms/" class="md-nav__link">
+        Authentication mechanisms
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interoperability-and-portability/configuration/" class="md-nav__link">
+        Configuration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interoperability-and-portability/localisation/" class="md-nav__link">
+        Localisation and internationaliszation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#version-numbering" class="md-nav__link">
+    Version numbering
+  </a>
+  
+    <nav class="md-nav" aria-label="Version numbering">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scope" class="md-nav__link">
+    Scope
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#increasing-version-numbers" class="md-nav__link">
+    Increasing version numbers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#releasing" class="md-nav__link">
+    Releasing
+  </a>
+  
+    <nav class="md-nav" aria-label="Releasing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lifecycle-stages" class="md-nav__link">
+    Lifecycle stages
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hotfixes" class="md-nav__link">
+    Hotfixes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publication" class="md-nav__link">
+    Publication
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-image-versioning" class="md-nav__link">
+    Docker image versioning
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-compose-projects" class="md-nav__link">
+    Docker compose projects
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#branching-merging-strategies" class="md-nav__link">
+    Branching, merging strategies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-reviews" class="md-nav__link">
+    Code reviews
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#continuous-integration" class="md-nav__link">
+    Continuous integration
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/clarin-eric/handbook-development/edit/main/docs/general-guidelines/code-lifecycle.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/clarin-eric/handbook-development/raw/main/docs/general-guidelines/code-lifecycle.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
+    </a>
+  
+
+
+
+<h1 id="code-lifecycle">Code lifecycle</h1>
+<p>{TODO: introduction}</p>
+<h2 id="version-numbering">Version numbering</h2>
+<p>👉 The format that version numbers <code>SHOULD</code> adhere to is <code>major.minor.patch[-qualifier]</code>
+where:</p>
+<ul>
+<li><code>major</code>, <code>minor</code> and <code>patch</code> <code>SHOULD</code> be integers, and</li>
+<li>the optional <code>qualifier</code>, if included, <code>SHOULD</code> be either <code>test</code>, <code>alpha</code>,
+  <code>beta</code> or <code>RC</code>, followed by an integer, OR a string such as <code>dev</code>, <code>SNAPSHOT</code>
+  [in case of work in progress].</li>
+</ul>
+<p>Examples:</p>
+<ul>
+<li>Examples of valid version numbers <em>without qualifiers</em>: <code>1.0.0</code>, <code>4.11.2</code></li>
+<li>Examples of valid version numbers <em>with qualifiers</em>: <code>3.0.1-alpha1</code>, <code>8.6.0-RC2</code>,
+  <code>2.5.0-SNAPSHOT</code></li>
+<li>Examples of <em>invalid version numbers</em>: <code>1.0</code>, <code>2-alpha1</code>, <code>3.1.0-beta</code></li>
+</ul>
+<p>👉 Commit id (git hash) <code>SHOULD NOT</code> be used in the version number. It is good
+practice is to include it somewhere in the built application ("About" page and/or
+manifest file).</p>
+<h3 id="scope">Scope</h3>
+<p>👉 Version numbers <code>SHOULD</code> be <em>aligned</em> for projects that are maintained in the
+same repository and share a release pipeline (e.g. modules of an application)</p>
+<p>👉 Version numbers <code>SHOULD</code> be <em>decoupled</em> for projects that are released separately
+and/or are maintained in separate repositories.</p>
+<h3 id="increasing-version-numbers">Increasing version numbers</h3>
+<p>👉 When releasing a new version of a software component or other project,
+<em>one</em> of the version components <code>SHOULD</code> be increased (major, minor, patch
+or qualifier), typically by <code>+1</code>.</p>
+<p>👉 Semantic versioning <code>SHOULD</code> be applied in the case of libraries and shared APIs
+as described at <a href="https://semver.org">semver.org</a>. More on versioning of APIs
+in the <a href="../api/">API section of the handbook</a>.</p>
+<p>Regarding version number increases, the following guidelines are to be considered:</p>
+<ul>
+<li>👉 The <em>major</em> version number <code>SHOULD</code> be increased</li>
+<li>for major revisions affecting all or most features, or most of the
+     user interface;</li>
+<li>if significant features changed or reimplemented fundamentally,
+     or removed;</li>
+<li>if compatibility with existing configurations is broken;</li>
+<li>if public access paths (i.e. URLs) have changed in an incompatible way.</li>
+<li>👉 The <em>minor</em> version number <code>SHOULD</code> be increased</li>
+<li>when new features have been added;</li>
+<li>when the underlying framework or other core dependencies have had a major
+  version upgrade.</li>
+<li>👉 The <em>patch</em> level version number <code>SHOULD</code> be increased</li>
+<li>for bug fixes and small improvements to existing features;</li>
+<li>for minor dependency upgrades;</li>
+<li>for any other kind of maintenance that does not affect functionality or
+     compatibility.</li>
+<li>👉 The <em>qualifier</em> can be increased at any point during alpha, beta and release
+  candidate development stages. For stable releases, it must be excluded altogether.</li>
+</ul>
+<h2 id="releasing">Releasing</h2>
+<h3 id="lifecycle-stages">Lifecycle stages</h3>
+<p>👉 The release process <code>SHOULD</code> be broken up into the following stages.
+Promote (or demote) according to the descriptions below. The version number
+(and therefore tag) <code>SHOULD</code> reflect the lifecycle stage in the value and/or
+presence of the qualifier part of the version number.</p>
+<ul>
+<li><strong>Alpha</strong>: Feature developments</li>
+<li>Stability and functionality do not have to be guaranteed</li>
+<li>Dependencies can still change, including updates to new minor versions</li>
+<li>Alpha status should be clear to the end user in the application's
+     interface (if applicable)</li>
+<li><strong>Beta</strong>: Feature freeze</li>
+<li>Bug fixes and feature enhancements</li>
+<li>Dependency checks, update to latest within minor and apply any
+     available security updates</li>
+<li>Version control: branch off from development</li>
+<li>Beta status should be clear to the end user in the application's
+     interface (if applicable)</li>
+<li><strong>Release candidate</strong></li>
+<li>Bugs are either fixed or documented as known issues</li>
+<li>Final dependency checks, main focus on security (high and critical
+     vulnerabilities must be resolved or else documented)</li>
+<li>Write or finalise a change log and upgrade instructions</li>
+<li><strong>Release</strong></li>
+<li>Should be identical to the last release candidate except for the
+     version number</li>
+</ul>
+<h3 id="hotfixes">Hotfixes</h3>
+<p>{TODO}</p>
+<h3 id="publication">Publication</h3>
+<p>👉 Make a GitHub or GitLab release for each stable tag.</p>
+<ul>
+<li>Specify any major changes in this version</li>
+<li>If it is a maintenance release, write 'Maintenance release'</li>
+<li>List major vulnerabilities resolved</li>
+<li>For images: specify the version of base image os and relevant software packages
+  (also if not changed)</li>
+<li>For 'base images': include the relevant platform versions in the title of the
+  release (e.g. <code>3.18.4 / Java 17.0.9</code>)</li>
+</ul>
+<h3 id="docker-image-versioning">Docker image versioning</h3>
+<p>👉  The following approach <code>SHOULD</code> be followed for <em>application images</em> and
+<code>MAY</code> be followed for other images that are centred around a specific version of
+a platform or environment:</p>
+<ul>
+<li>Scheme for the version number/tag is <code>{APP_VERSION}_{X.Y.Z}</code>  </li>
+<li>Where <code>{X.Y.Z}</code> is a version that follows the guidlines above and starts with
+     <code>1.0.0</code> for each new value of <code>{APP_VERSION}</code></li>
+<li><code>{APP_VERSION}</code> <code>MAY</code> include qualifiers such as <code>alpha1</code>, but <code>{X.Y.Z}</code>
+     <code>SHOULD</code> consist of three dot separated digits only</li>
+<li><code>{APP_VERSION}</code> <code>MAY</code> be reduced to a significant level such as <code>{major.minor}</code>
+     or in some cases even just <code>{major}</code></li>
+<li>Resetting of the image version resets for every app version, so there will be,
+     for instance, <code>1.0_1.0.0</code>, followed by <code>1.0_2.0.0</code> and <code>1.1_1.0.0</code>.</li>
+<li>Examples:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>App v.</th>
+<th></th>
+<th>Image v.</th>
+<th>Combined</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0.0</td>
+<td>_</td>
+<td>1.0.0</td>
+<td>app-1.0.0_1.0.0</td>
+</tr>
+<tr>
+<td>1.1.0-alpha1</td>
+<td>_</td>
+<td>1.2.2</td>
+<td>app-1.1.0-alpha1_1.2.2</td>
+</tr>
+</tbody>
+</table>
+<p>👉 For <em>base images</em> and other images that provide a platform or 'environment'
+rather than an application (e.g. alpine, java, tomcat, nginx), version numbering
+<code>MAY</code> follow the same scheme as applications (<code>major.minor.path[-qualifier]</code>).</p>
+<h3 id="docker-compose-projects">Docker compose projects</h3>
+<p>👉 The following approach <code>SHOULD</code> be followed for compose projects:</p>
+<ul>
+<li>IFF there is a single application with a single version number it is built
+  around, follow the same scheme as for application docker images (<code>{APP_VERSION}_{X.Y.Z}</code>)</li>
+<li>Otherwise use 'independent' version numbering (suite version)</li>
+<li>Naming of the project typically reflects whether it is application centered or
+  a 'suite'. In the latter case it has (or could have) a name that is different to
+  one of the included services.</li>
+</ul>
+<h2 id="branching-merging-strategies">Branching, merging strategies</h2>
+<ul>
+<li>
+<p>General guidelines on workflow(s)</p>
+</li>
+<li>
+<p>Default choice: Git Flow</p>
+</li>
+<li>Stages (active development/out of development/deprecated)<ul>
+<li>Projects that go ‘out of development’ can have their <strong>development branch dropped</strong>; in this stage, only make hotfixes.<ul>
+<li>Hotfix should be in hotfix branch (not directly to main)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Branches</li>
+<li>
+<p>The main branch</p>
+<ul>
+<li>\= Stable<ul>
+<li>Should have tests and checks in successful state (or warning, no fail)</li>
+</ul>
+</li>
+<li>Avoid direct commits to main branch<ul>
+<li>Use GH/GL repo config to protect main branch</li>
+</ul>
+</li>
+<li>Name: use ‘main’ for new projects - ok but not necessary to rename in existing projects<ul>
+<li>Configure your local git client to use ‘main’ as the default branch when initializing new repositories:
+      git config --global init.defaultBranch main
+    (<a href="https://github.blog/2020-07-27-highlights-from-git-2-28/#introducing-init-defaultbranch">source</a>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Development branch(es)</p>
+<ul>
+<li>Name: ^dev(elop(ment)?)?$</li>
+<li>“Permanent” development branch?<ul>
+<li>Keep ahead of main branch! With merge.</li>
+</ul>
+</li>
+<li>Alpha tags/release can be made from this branch</li>
+</ul>
+</li>
+<li>Feature branches<ul>
+<li>Naming<ul>
+<li>Good practice to include issue number(s) if applicable</li>
+<li>Otherwise as descriptive (but short) as possible</li>
+</ul>
+</li>
+<li>Should branch off directly from the development branch. Do not ‘stack’</li>
+<li>Rebase and clean up before merging back into the targeted branch<ul>
+<li>Don’t force push the feature branch unless it is a private one</li>
+</ul>
+</li>
+<li>Alpha tags/release can be made from this branch</li>
+</ul>
+</li>
+<li>Release branches<ul>
+<li>Name<ul>
+<li>release-x.y(.z)</li>
+</ul>
+</li>
+<li>Upon feature freeze</li>
+<li>Version number in code base changes on this branch (not develop)</li>
+<li>From here you may tag x.y.z-betaN (also alpha)</li>
+<li>Bug fixes until ready for x.y.z release</li>
+<li>Merge into main branch at time of x.y.z release, then tag x.y.z on main branch</li>
+</ul>
+</li>
+<li>Tags</li>
+<li>Avoid deleting tags<ul>
+<li>Exception can be to try to avoid usage anywhere</li>
+<li>Exception can be to immediately clean up after a slip-up</li>
+<li>In case of image to be removed from container repo<ul>
+<li>Delete the image from the container repo but keep the tag, adding a description to the release</li>
+</ul>
+</li>
+<li>NEVER remove a tag if there has ever been a deployment based on that tag (whether testing, staging or production)</li>
+</ul>
+</li>
+<li>Re-tagging<ul>
+<li>Do not re-tag (use same tag name twice) UNLESS<ul>
+<li>In a private repository</li>
+<li>Know for sure that it can not have been used anywhere</li>
+</ul>
+</li>
+<li>Never for stable (non alpha, beta or RC)</li>
+</ul>
+</li>
+<li>Examples of tag patterns for application (note: this repeats on the right hand side for  docker images, see section X)<ul>
+<li>Towards release `x.y.z`, normally in this order<ul>
+<li>alpha release(s): `x.y.z-alphaN`</li>
+<li>[feature freeze]</li>
+<li>beta release(s): `x.y.z-betaN`</li>
+<li>release candidates: `x.y.z-rcN`</li>
+<li>final release: `x.y.z`</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Pull requests / merge requests (PRs)</li>
+<li>Good practice to use PRs instead of merging directly in the client, especially if multiple people are actively working on a project</li>
+<li>Make pull requests on feature branches (&amp; release branches)<ul>
+<li>preferably pull requests are not made on permanent branches<ul>
+<li>note: if your branching strategy includes permanent branches other than the main branch (e.g. development), it probably fits to make release branch</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Naming: PR name should describe the change and if applicable a reference to the issue #<ul>
+<li>in case of feature branches the name of the branch might give this information</li>
+<li>beware of default behaviour of Git(Hub|Lab) to use last commit message as title</li>
+</ul>
+</li>
+<li>PR acceptance<ul>
+<li>Tests &amp; checks should all pass<ul>
+<li>If overriding failed checks, document reason in a comment</li>
+</ul>
+</li>
+<li>Code reviews?<ul>
+<li>See below</li>
+<li>Recommended to request review for PR if multiple active contributors</li>
+</ul>
+</li>
+<li>Branch specific requirements</li>
+</ul>
+</li>
+<li>Forks</li>
+<li>If the sausage making is very ugly, consider doing it in a fork<ul>
+<li>Examples:<ul>
+<li>work that is likely to require a lot of rewriting of git history</li>
+<li>testing</li>
+<li>experimenting with tags, CI pipeline</li>
+</ul>
+</li>
+<li>Branch in fork with same name as upstream can serve as feature branch - PR must clearly describe the feature</li>
+</ul>
+</li>
+<li>Maintaining multiple versions</li>
+<li>Keep a permanent branch for older versions that need to be maintained</li>
+<li>If need be such a branch can be created at any stage</li>
+<li>Avoid ‘orphaned’ tags</li>
+</ul>
+<h2 id="code-reviews">Code reviews</h2>
+<p>....</p>
+<h2 id="continuous-integration">Continuous integration</h2>
+<ul>
+<li>Where?</li>
+<li>GitLab<ul>
+<li>Docker builds -&gt; deploy to GitLab (repo) docker registry</li>
+<li>Docker compose (test stage tested on GitLab; performance benefit of loading of images from registry)</li>
+<li>Building of GitHub projects on GitLab for full chain Maven -&gt; Image build &amp; deploy to registry</li>
+<li>Pay attention to artifact size limits</li>
+</ul>
+</li>
+<li>GitHub actions<ul>
+<li>For application code</li>
+<li>Can be used to trigger build on GitLab</li>
+<li>(Theoretically) more portable than Travis</li>
+</ul>
+</li>
+<li>Travis<ul>
+<li>Guideline: transition to GitHub actions if feasible
+   -</li>
+</ul>
+</li>
+</ul>
+<p>Recommended to have all the following stages implemented:</p>
+<p>Stages</p>
+<ul>
+<li>Linting / resource validation</li>
+<li>Docker files</li>
+<li>Shell scripts</li>
+<li>JS</li>
+<li>CSS</li>
+<li>XML</li>
+<li>Python??</li>
+<li>Compiling / building</li>
+<li>Testing</li>
+<li>Application code: unit tests</li>
+<li>Docker: build script test command (compose based)</li>
+<li>Docker compose: control script test command</li>
+<li>Security check/scan</li>
+<li>Docker (compose): snyk</li>
+<li>Release</li>
+<li>Application: deploy artifact to GitHub release</li>
+<li>Docker: deploy multi-architecture image to repository</li>
+</ul>
+<p>Ignoring or skipping (failing) tests:</p>
+<ul>
+<li>During development</li>
+<li>In case of upstream issues that cannot be resolved</li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../testing/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Testing" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  Previous
+                </span>
+                Testing
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../security/" class="md-footer__link md-footer__link--next" aria-label="Next: Security" rel="next">
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  Next
+                </span>
+                Security
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://www.clarin.eu" target="_blank" rel="noopener" title="www.clarin.eu" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M352 256c0 22.2-1.2 43.6-3.3 64H163.3c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64h185.4c2.2 20.4 3.3 41.8 3.3 64zm28.8-64h123.1c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64H380.8c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64zm112.6-32H376.7c-10-63.9-29.8-117.4-55.3-151.6 78.3 20.7 142 77.5 171.9 151.6zm-149.1 0H167.7c6.1-36.4 15.5-68.6 27-94.7 10.5-23.6 22.2-40.7 33.5-51.5C239.4 3.2 248.7 0 256 0s16.6 3.2 27.8 13.8c11.3 10.8 23 27.9 33.5 51.5 11.6 26 21 58.2 27 94.7zm-209 0H18.6c30-74.1 93.6-130.9 172-151.6-25.5 34.2-45.3 87.7-55.3 151.6zM8.1 192h123.1c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64H8.1C2.8 299.5 0 278.1 0 256s2.8-43.5 8.1-64zm186.6 254.6c-11.6-26-20.9-58.2-27-94.6h176.6c-6.1 36.4-15.5 68.6-27 94.6-10.5 23.6-22.2 40.7-33.5 51.5-11.2 10.7-20.5 13.9-27.8 13.9s-16.6-3.2-27.8-13.8c-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6-78.4-20.7-142-77.5-172-151.6h116.7zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6 25.5-34.2 45.2-87.7 55.3-151.6h116.6z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://github.com/clarin-eric" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://gitlab.com/CLARIN-ERIC" target="_blank" rel="noopener" title="gitlab.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="m503.5 204.6-.7-1.8-69.7-181.78c-1.4-3.57-3.9-6.59-7.2-8.64-2.4-1.55-5.1-2.515-8-2.81-2.9-.295-5.7.083-8.4 1.11-2.7 1.02-5.1 2.66-7.1 4.78-1.9 2.12-3.3 4.67-4.1 7.44l-47 144H160.8l-47.1-144c-.8-2.77-2.2-5.31-4.1-7.43-2-2.12-4.4-3.75-7.1-4.77a18.1 18.1 0 0 0-8.38-1.113 18.4 18.4 0 0 0-8.04 2.793 18.09 18.09 0 0 0-7.16 8.64L9.267 202.8l-.724 1.8a129.57 129.57 0 0 0-3.52 82c7.747 26.9 24.047 50.7 46.447 67.6l.27.2.59.4 105.97 79.5 52.6 39.7 32 24.2c3.7 1.9 8.3 4.3 13 4.3 4.7 0 9.3-2.4 13-4.3l32-24.2 52.6-39.7 106.7-79.9.3-.3c22.4-16.9 38.7-40.6 45.6-67.5 8.6-27 7.4-55.8-2.6-82z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.sections", "navigation.expand", "navigation.footer", "content.action.view", "content.action.edit"], "search": "../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.51d95adb.min.js"></script>
+      
+    
+  </body>
+</html>
