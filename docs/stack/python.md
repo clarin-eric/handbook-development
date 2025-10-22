@@ -54,7 +54,7 @@ By default, `SHOULD` use Python's core [logging](https://docs.python.org/3/libra
 Use `pip` as default package manage:
 
 * 👉 `MUST` build wheels and install package from the wheel [PEP427](https://peps.python.org/pep-0427/).
-* 👉 `MUST` use pytoml + [Poetry](https://python-poetry.org/docs/pyproject/) as SCM backend
+* 👉 `MUST` use pytoml + `SHOULD` use [Poetry](https://python-poetry.org/docs/pyproject/) as SCM backend
 * 👉 `MUST` distribute packages as wheels
 * 👉 `MUST` use CLARIN's [wheel builder](https://gitlab.com/CLARIN-ERIC/docker-alpine-wheeler) for building wheels
 
