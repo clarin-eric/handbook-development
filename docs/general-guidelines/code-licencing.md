@@ -1,7 +1,7 @@
 # Code licence
 
-- Each code (including docker image/compose) or documentation project MUST be explicitly licenced
-   - Git repositories should have a LICENCE file if a single licence applies to the entire repo
+-   Each code (including docker image/compose) or documentation project MUST be explicitly licenced
+   -  Git repositories should have a LICENCE file if a single licence applies to the entire repo
    - Docker: see below
 - Default licence (see also ​​[https://www.clarin.eu/programmers](https://www.clarin.eu/programmers)):
    - For code: GPLv3 \[Policy\]
