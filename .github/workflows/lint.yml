@@ -1,8 +1,7 @@
 name: Markdown linting
 on:
   push:
-  pull_request:
-
+    branches-ignore: [main]
 jobs:
   lint:
     name: Lint markdown
