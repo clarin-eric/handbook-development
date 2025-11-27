@@ -3,7 +3,7 @@ on:
   push:
 jobs:
   lint:
-    name: Lint-markdown
+    name: Lint markdown
     runs-on: ubuntu-latest
     continue-on-error: false
     steps:
