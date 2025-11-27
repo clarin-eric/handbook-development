@@ -6,7 +6,7 @@ REST architecture means following the 5(+1) Guiding Principles of REST (https://
 
 ## Logic separation
 
-API logic should be encapsulated and separate from the application backend. It can be stored in the same repository. 
+API logic should be encapsulated and separate from the application backend. It can be stored in the same repository.
 👉 Front-end `SHOULD` consume API in order to maximise reusability. 
 
 ## Versioning
@@ -31,7 +31,7 @@ Cannot separately deploy/test back- or front-end
 
 ### Component Registry
 
-- back-end/API (JAX-RS) + wicket for administration interface in Tomcat
+- back-end/API \(JAX-RS\) + wicket for administration interface in Tomcat
 - nginx proxy + front-end's statics
 
 Two separate images, front- and back-end can be managed separately. 
