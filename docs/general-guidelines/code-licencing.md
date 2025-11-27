@@ -13,8 +13,8 @@
          - Note: in some cases (e.g. GPL??) licence itself must also be bundled
 - Tooling
    - [https://www.fossology.org/](https://www.fossology.org/)
-   - Licence compliance
-      - e.g. maven licence plugin
+   -  Licence compliance
+      -   e.g. maven licence plugin
       - GitHub community standards check
    - Licence compatibility
       - check for conflicting licences
