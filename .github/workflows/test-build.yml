@@ -1,9 +1,7 @@
 name: Test build site
 on:
   pull_request:
-  workflow_run:
-    workflows: [Markdown linting]
-    types: [completed]
+  push:
 
 jobs:
   test:
