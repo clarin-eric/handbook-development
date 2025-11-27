@@ -1,10 +1,10 @@
 # Home
 
-## About the handbook
+## About the CLARIN ERIC Software Development Handbook
+
+This handbook is used to collect guidelines, best practices and practical hints for the development and maintenance of applications and services that are part of the core technical infrastructure of [CLARIN](https://www.clarin.eu). It is maintained by CLARIN's development team.
 
 This is work in progress!
-
-[TODO]
 
 ## Contributing to the handbook
 
