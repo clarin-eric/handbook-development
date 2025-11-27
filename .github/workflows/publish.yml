@@ -1,7 +1,7 @@
 name: Publication to GitHub Pages
 on:
   workflow_run:
-    workflows: [ Markdown linting ]
+    workflows: [Markdown linting]
     branches: [main]
     types: [completed]
 
