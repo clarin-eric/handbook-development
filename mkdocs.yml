@@ -35,7 +35,6 @@ nav:
   - 'General guidelines':
     - 'Documentation': general-guidelines/documentation.md
     - 'Logging': general-guidelines/logging.md
-    - 'Configuration': general-guidelines/configuration.md
     - 'API development': general-guidelines/api.md
     - 'Testing': general-guidelines/testing.md
     - 'Code lifecycle': general-guidelines/code-lifecycle.md
@@ -51,4 +50,5 @@ nav:
     - 'Javascript': stack/javascript.md
   - 'Interoperability and portability':
     - 'Authentication mechanisms': interoperability-and-portability/authentication-mechanisms.md
+    - 'Configuration': interoperability-and-portability/configuration.md
     - 'Localisation and internationaliszation': interoperability-and-portability/localisation.md

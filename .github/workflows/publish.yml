@@ -1,8 +1,9 @@
 name: Publication to GitHub Pages
 on:
-  push:
-    branches:
-      - main
+  workflow_run:
+    workflows: [Markdown linting]
+    branches: [main]
+    types: [completed]
 
 jobs:
   build:
